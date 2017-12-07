@@ -13,6 +13,11 @@
       <p>Tele2 Material supports the latest version of all Browsers</p>
     </section>
 
+    <section class="page-container-section">
+      <h2 class="md-title">What about the license?</h2>
+      <p><a href="https://github.com/vuematerial/tele2-material/blob/dev/LICENSE" target="_blank">MIT</a>. Always. Forever!</p>
+    </section>
+
   </page-container>
 </template>
 
@@ -23,6 +28,29 @@
 </script>
 
 <style lang="scss" scoped>
+  .author-card {
+    display: inline-flex;
+    align-items: center;
+
+    .md-avatar {
+      margin-right: 16px;
+    }
+
+    .author-card-info {
+      display: flex;
+      flex-flow: column;
+      flex: 1;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    .author-card-links {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
   .logo-tele2-material {
     width: 24px;

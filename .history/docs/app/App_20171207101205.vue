@@ -17,6 +17,7 @@
     <md-snackbar class="version-message" md-theme="default" :md-active.sync="message" :md-duration="Infinity">
       <span>This site is for the Tele2 Material 1.0</span>
       <div>
+        <md-button href="https://tele2-material-old.netlify.com/" target="_blank">Visit old docs</md-button>
         <md-button class="md-accent" @click="closeMessage">Dismiss</md-button>
       </div>
     </md-snackbar>

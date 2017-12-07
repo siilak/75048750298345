@@ -23,6 +23,29 @@
 </script>
 
 <style lang="scss" scoped>
+  .author-card {
+    display: inline-flex;
+    align-items: center;
+
+    .md-avatar {
+      margin-right: 16px;
+    }
+
+    .author-card-info {
+      display: flex;
+      flex-flow: column;
+      flex: 1;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    .author-card-links {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
   .logo-tele2-material {
     width: 24px;
