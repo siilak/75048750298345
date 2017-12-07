@@ -8,7 +8,7 @@
 
     <md-drawer md-fixed :md-active.sync="isMenuVisible" @md-closed="hideMenu">
       <md-toolbar class="md-transparent" md-elevation="0">
-        <logo-tele2-material class="md-icon" animated :blending="false" />
+        <logo-vue-material class="md-icon" animated :blending="false" />
         <span class="md-title">Tele2 Material</span>
       </md-toolbar>
 
@@ -111,7 +111,7 @@
     }
   }
 
-  .logo-tele2-material {
+  .logo-vue-material {
     width: 32px;
     height: 32px;
     margin: 0 0 0 8px;

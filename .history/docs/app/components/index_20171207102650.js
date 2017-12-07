@@ -2,7 +2,7 @@
 import Vue from 'vue'
 import PageContainer from './PageContainer'
 import SplashContainer from './SplashContainer'
-import LogoTele2Material from './LogoTele2Material'
+import LogoVueMaterial from './LogoVueMaterial'
 import CodeLoading from './CodeLoading'
 import CodeBlock from './CodeBlock'
 import CodeExample from './CodeExample'
@@ -15,7 +15,7 @@ import NoteBlock from './NoteBlock/NoteBlock'
 
 Vue.component(PageContainer.name, PageContainer)
 Vue.component(SplashContainer.name, SplashContainer)
-Vue.component(LogoTele2Material.name, LogoTele2Material)
+Vue.component(LogoVueMaterial.name, LogoVueMaterial)
 Vue.component(CodeLoading.name, CodeLoading)
 Vue.component(CodeBlock.name, CodeBlock)
 Vue.component(CodeExample.name, CodeExample)

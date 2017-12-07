@@ -1,7 +1,7 @@
 <template>
   <header class="home-header">
     <div class="home-logo">
-      <logo-tele2-material animated />
+      <logo-vue-material animated />
     </div>
 
     <div class="home-call">
@@ -39,7 +39,7 @@
     position: relative;
   }
 
-  .logo-tele2-material {
+  .logo-vue-material {
     width: 100%;
   }
 

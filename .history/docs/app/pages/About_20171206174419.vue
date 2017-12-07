@@ -67,7 +67,7 @@
       <h2 class="md-title">Credits and Thanks</h2>
       <ul>
         <li><a href="https://github.com/elviskang" target="_blank">elviskang</a> for donating the npm package name!</li>
-        <li><a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Tele2 Material Logo. <logo-tele2-material animated /></li>
+        <li><a href="https://github.com/brunocastro" target="_blank">Bruno Castro</a> for the awesome Tele2 Material Logo. <logo-vue-material animated /></li>
       </ul>
     </section>
   </page-container>
@@ -104,7 +104,7 @@
     }
   }
 
-  .logo-tele2-material {
+  .logo-vue-material {
     width: 24px;
     display: inline-block;
     vertical-align: middle;

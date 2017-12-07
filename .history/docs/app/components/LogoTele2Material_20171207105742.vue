@@ -83,7 +83,7 @@
 import MdSvgLoader from 'tele2-material/components/MdSvgLoader/MdSvgLoader'
 
 export default {
-  name: 'LogoVueMaterial',
+  name: 'LogoTele2Material',
   components: {
     MdSvgLoader
   },
