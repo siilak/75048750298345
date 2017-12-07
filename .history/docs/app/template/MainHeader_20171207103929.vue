@@ -75,6 +75,7 @@
 
 <script>
   import { mapState, mapActions, mapMutations } from 'vuex'
+  import LogoVueMaterial from '../components/LogoVueMaterial'
   import * as types from 'store/mutation-types'
 
   export default {

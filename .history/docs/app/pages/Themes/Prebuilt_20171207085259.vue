@@ -21,11 +21,11 @@
       <p>Import your css file along with Tele2 Material styles:</p>
       <code-example title="Importing the theme">
         import Vue from 'vue'
-        import VueMaterial from 'tele2-material'
+        import Tele2Material from 'tele2-material'
         import 'tele2-material/dist/tele2-material.min.css'
         import 'tele2-material/dist/theme/default-dark.css' // This line here
 
-        Vue.use(VueMaterial)
+        Vue.use(Tele2Material)
       </code-example>
 
       <p>Alternatively you can use CDN to include it directly on your HTML:</p>

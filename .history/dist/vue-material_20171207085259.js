@@ -9,10 +9,10 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["vue"], factory);
 	else if(typeof exports === 'object')
-		exports["VueMaterial"] = factory(require("vue"));
+		exports["Tele2Material"] = factory(require("vue"));
 	else
-		root["VueMaterial"] = factory(root["Vue"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_7__) {
+		root["Tele2Material"] = factory(root["Vue"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_7__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -200,11 +200,11 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(56);
 
-var _MdReactive = __webpack_require__(27);
+var _MdReactive = __webpack_require__(28);
 
 var _MdReactive2 = _interopRequireDefault(_MdReactive);
 
-var _MdTheme = __webpack_require__(28);
+var _MdTheme = __webpack_require__(29);
 
 var _MdTheme2 = _interopRequireDefault(_MdTheme);
 
@@ -299,11 +299,11 @@ exports.default = function (newComponent) {
   return (0, _deepmerge2.default)(defaults, newComponent);
 };
 
-var _MdTheme = __webpack_require__(28);
+var _MdTheme = __webpack_require__(29);
 
 var _MdTheme2 = _interopRequireDefault(_MdTheme);
 
-var _deepmerge = __webpack_require__(29);
+var _deepmerge = __webpack_require__(30);
 
 var _deepmerge2 = _interopRequireDefault(_deepmerge);
 
@@ -722,7 +722,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -865,7 +865,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -982,7 +982,7 @@ module.exports.polyfill = function(object) {
   object.cancelAnimationFrame = caf
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
 /* 10 */
@@ -1084,7 +1084,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -1132,7 +1132,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _MdRipple = __webpack_require__(18);
+var _MdRipple = __webpack_require__(19);
 
 var _MdRipple2 = _interopRequireDefault(_MdRipple);
 
@@ -1193,7 +1193,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -1298,7 +1298,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -1688,6 +1688,33 @@ exports.default = {
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1706,7 +1733,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1735,7 +1762,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1841,7 +1868,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -1879,7 +1906,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
@@ -1910,7 +1937,7 @@ module.exports = startOfDay
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfWeek = __webpack_require__(174)
@@ -1941,7 +1968,7 @@ module.exports = startOfISOWeek
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1997,7 +2024,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -2035,7 +2062,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
@@ -2069,7 +2096,7 @@ module.exports = getDaysInMonth
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2087,7 +2114,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -2125,7 +2152,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2150,7 +2177,7 @@ exports.default = function (el, config, cb) {
 };
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2236,7 +2263,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -2274,7 +2301,7 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2299,7 +2326,7 @@ var _vue2 = _interopRequireDefault(_vue);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2461,7 +2488,7 @@ exports.default = new _vue2.default({
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2558,7 +2585,7 @@ var deepmerge_1 = deepmerge;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2889,33 +2916,6 @@ exports.default = {
 };
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2926,7 +2926,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _MdReactive = __webpack_require__(27);
+var _MdReactive = __webpack_require__(28);
 
 var _MdReactive2 = _interopRequireDefault(_MdReactive);
 
@@ -3150,7 +3150,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(1, false, true)
+  return _vm._m(1)
 }
 var staticRenderFns = [
   function() {
@@ -3183,9 +3183,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("md-icon", { staticClass: "md-icon-image" }, [
-      _vm._m(0, false, true)
-    ])
+    return _c("md-icon", { staticClass: "md-icon-image" }, [_vm._m(0)])
   }
 ]
 render._withStripped = true
@@ -3205,7 +3203,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -3257,7 +3255,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -3325,7 +3323,7 @@ module.exports = isDate
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
-var startOfISOWeek = __webpack_require__(21)
+var startOfISOWeek = __webpack_require__(22)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -3417,7 +3415,7 @@ module.exports = isValid
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
-var getDaysInMonth = __webpack_require__(23)
+var getDaysInMonth = __webpack_require__(24)
 
 /**
  * @category Month Helpers
@@ -3592,7 +3590,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -3721,7 +3719,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -3918,7 +3916,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4031,7 +4029,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4087,7 +4085,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4225,7 +4223,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -4330,7 +4328,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4428,7 +4426,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4513,7 +4511,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -4575,7 +4573,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var VueMaterial = function VueMaterial(Vue) {
+var Tele2Material = function Tele2Material(Vue) {
   (0, _material2.default)(Vue);
 
   Object.values(MdComponents).forEach(function (MdComponent) {
@@ -4583,15 +4581,15 @@ var VueMaterial = function VueMaterial(Vue) {
   });
 };
 
-VueMaterial.version = '__VERSION__';
+Tele2Material.version = '__VERSION__';
 
-exports.default = VueMaterial;
+exports.default = Tele2Material;
 
 /***/ }),
 /* 55 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
+/* WEBPACK VAR INJECTION */(function(global) {/**
  * Copyright (c) 2014, Facebook, Inc.
  * All rights reserved.
  *
@@ -4781,6 +4779,10 @@ exports.default = VueMaterial;
           resolve(result);
         }, reject);
       }
+    }
+
+    if (typeof global.process === "object" && global.process.domain) {
+      invoke = global.process.domain.bind(invoke);
     }
 
     var previousPromise;
@@ -5316,12 +5318,15 @@ exports.default = VueMaterial;
     }
   };
 })(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() { return this })() || Function("return this")()
+  // Among the various tricks for obtaining a reference to the global
+  // object, this seems to be the most reliable technique that does not
+  // use indirect eval (which violates Content Security Policy).
+  typeof global === "object" ? global :
+  typeof window === "object" ? window :
+  typeof self === "object" ? self : this
 );
 
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
 /* 56 */
@@ -5589,7 +5594,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -5643,8 +5648,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _MdAppSideDrawer = __webpack_require__(62);
 
 var _MdAppSideDrawer2 = _interopRequireDefault(_MdAppSideDrawer);
@@ -5697,8 +5700,7 @@ exports.default = {
   functional: true,
   render: function render(createElement, _ref) {
     var children = _ref.children,
-        props = _ref.props,
-        data = _ref.data;
+        props = _ref.props;
 
     var appComponent = _MdAppSideDrawer2.default;
 
@@ -5716,18 +5718,8 @@ exports.default = {
       }
     });
 
-    var staticClass = {};
-    if (data.staticClass) {
-      data.staticClass.split(/\s+/).forEach(function (name) {
-        if (name.length === 0) return;
-        staticClass[name] = true;
-      });
-    }
-
     return createElement(appComponent, {
-      attrs: props,
-      class: _extends({}, staticClass, data.class),
-      style: _extends({}, data.staticStyle, data.style)
+      attrs: props
     }, slots);
   }
 };
@@ -5816,7 +5808,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -5874,7 +5866,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdAppMixin = __webpack_require__(30);
+var _MdAppMixin = __webpack_require__(31);
 
 var _MdAppMixin2 = _interopRequireDefault(_MdAppMixin);
 
@@ -6205,7 +6197,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -6263,7 +6255,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdAppMixin = __webpack_require__(30);
+var _MdAppMixin = __webpack_require__(31);
 
 var _MdAppMixin2 = _interopRequireDefault(_MdAppMixin);
 
@@ -6345,7 +6337,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -6509,7 +6501,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -6627,7 +6619,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -6971,7 +6963,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -7444,7 +7436,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -7604,7 +7596,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -8101,7 +8093,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -8149,7 +8141,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _MdAssetIcon = __webpack_require__(17);
+var _MdAssetIcon = __webpack_require__(18);
 
 var _MdAssetIcon2 = _interopRequireDefault(_MdAssetIcon);
 
@@ -8335,7 +8327,7 @@ var _MdFocused = __webpack_require__(32);
 
 var _MdFocused2 = _interopRequireDefault(_MdFocused);
 
-var _MdRipple = __webpack_require__(18);
+var _MdRipple = __webpack_require__(19);
 
 var _MdRipple2 = _interopRequireDefault(_MdRipple);
 
@@ -8447,7 +8439,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -8651,7 +8643,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -8789,7 +8781,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -8903,7 +8895,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9008,7 +9000,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -9126,7 +9118,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9292,7 +9284,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9411,7 +9403,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9617,7 +9609,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9721,7 +9713,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9805,7 +9797,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -9938,7 +9930,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -10079,7 +10071,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -10297,7 +10289,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -10545,7 +10537,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -10633,7 +10625,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdField = __webpack_require__(19);
+var _MdField = __webpack_require__(20);
 
 var _MdField2 = _interopRequireDefault(_MdField);
 
@@ -11036,7 +11028,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -11221,7 +11213,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -11275,7 +11267,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -11360,7 +11352,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -11409,7 +11401,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -11667,7 +11659,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -11729,7 +11721,7 @@ var _MdFocused = __webpack_require__(32);
 
 var _MdFocused2 = _interopRequireDefault(_MdFocused);
 
-var _MdRipple = __webpack_require__(18);
+var _MdRipple = __webpack_require__(19);
 
 var _MdRipple2 = _interopRequireDefault(_MdRipple);
 
@@ -11971,7 +11963,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -12045,7 +12037,7 @@ var _is_valid = __webpack_require__(38);
 
 var _is_valid2 = _interopRequireDefault(_is_valid);
 
-var _MdOverlay = __webpack_require__(22);
+var _MdOverlay = __webpack_require__(23);
 
 var _MdOverlay2 = _interopRequireDefault(_MdOverlay);
 
@@ -12057,7 +12049,7 @@ var _MdDateIcon = __webpack_require__(206);
 
 var _MdDateIcon2 = _interopRequireDefault(_MdDateIcon);
 
-var _MdField = __webpack_require__(19);
+var _MdField = __webpack_require__(20);
 
 var _MdField2 = _interopRequireDefault(_MdField);
 
@@ -12575,7 +12567,7 @@ module.exports = startOfYear
 /* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfDay = __webpack_require__(20)
+var startOfDay = __webpack_require__(21)
 
 var MILLISECONDS_IN_MINUTE = 60000
 var MILLISECONDS_IN_DAY = 86400000
@@ -12623,7 +12615,7 @@ module.exports = differenceInCalendarDays
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
-var startOfISOWeek = __webpack_require__(21)
+var startOfISOWeek = __webpack_require__(22)
 var startOfISOYear = __webpack_require__(175)
 
 var MILLISECONDS_IN_WEEK = 604800000
@@ -12707,7 +12699,7 @@ module.exports = startOfWeek
 /***/ (function(module, exports, __webpack_require__) {
 
 var getISOYear = __webpack_require__(37)
-var startOfISOWeek = __webpack_require__(21)
+var startOfISOWeek = __webpack_require__(22)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -13426,7 +13418,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -13500,7 +13492,7 @@ var _get_day = __webpack_require__(188);
 
 var _get_day2 = _interopRequireDefault(_get_day);
 
-var _get_days_in_month = __webpack_require__(23);
+var _get_days_in_month = __webpack_require__(24);
 
 var _get_days_in_month2 = _interopRequireDefault(_get_days_in_month);
 
@@ -13540,7 +13532,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdPopover = __webpack_require__(24);
+var _MdPopover = __webpack_require__(25);
 
 var _MdPopover2 = _interopRequireDefault(_MdPopover);
 
@@ -14137,7 +14129,7 @@ module.exports = isEqual
 /* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfDay = __webpack_require__(20)
+var startOfDay = __webpack_require__(21)
 
 /**
  * @category Day Helpers
@@ -14172,7 +14164,7 @@ module.exports = isSameDay
 /* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfDay = __webpack_require__(20)
+var startOfDay = __webpack_require__(21)
 
 /**
  * @category Day Helpers
@@ -14233,7 +14225,7 @@ module.exports = setDate
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(3)
-var getDaysInMonth = __webpack_require__(23)
+var getDaysInMonth = __webpack_require__(24)
 
 /**
  * @category Month Helpers
@@ -14325,7 +14317,7 @@ var _popper = __webpack_require__(199);
 
 var _popper2 = _interopRequireDefault(_popper);
 
-var _deepmerge = __webpack_require__(29);
+var _deepmerge = __webpack_require__(30);
 
 var _deepmerge2 = _interopRequireDefault(_deepmerge);
 
@@ -14511,7 +14503,7 @@ exports.default = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.9
+ * @version 1.12.6
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -14533,7 +14525,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+var isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
 var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
 var timeoutDuration = 0;
 for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
@@ -14550,7 +14542,7 @@ function microtaskDebounce(fn) {
       return;
     }
     called = true;
-    window.Promise.resolve().then(function () {
+    Promise.resolve().then(function () {
       called = false;
       fn();
     });
@@ -14607,7 +14599,7 @@ function getStyleComputedProperty(element, property) {
     return [];
   }
   // NOTE: 1 DOM access here
-  var css = getComputedStyle(element, null);
+  var css = window.getComputedStyle(element, null);
   return property ? css[property] : css;
 }
 
@@ -14635,7 +14627,7 @@ function getParentNode(element) {
 function getScrollParent(element) {
   // Return body, `getScroll` will take care to get the correct `scrollTop` from it
   if (!element) {
-    return document.body;
+    return window.document.body;
   }
 
   switch (element.nodeName) {
@@ -14677,7 +14669,7 @@ function getOffsetParent(element) {
       return element.ownerDocument.documentElement;
     }
 
-    return document.documentElement;
+    return window.document.documentElement;
   }
 
   // .offsetParent will return the closest TD or TABLE in case
@@ -14724,7 +14716,7 @@ function getRoot(node) {
 function findCommonOffsetParent(element1, element2) {
   // This check is needed to avoid errors in case one of the elements isn't defined for any reason
   if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
-    return document.documentElement;
+    return window.document.documentElement;
   }
 
   // Here we make sure to give as "start" the element that comes first in the DOM
@@ -14816,7 +14808,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return +styles['border' + sideA + 'Width'].split('px')[0] + +styles['border' + sideB + 'Width'].split('px')[0];
 }
 
 /**
@@ -14839,9 +14831,9 @@ function getSize(axis, body, html, computedStyle) {
 }
 
 function getWindowSizes() {
-  var body = document.body;
-  var html = document.documentElement;
-  var computedStyle = isIE10$1() && getComputedStyle(html);
+  var body = window.document.body;
+  var html = window.document.documentElement;
+  var computedStyle = isIE10$1() && window.getComputedStyle(html);
 
   return {
     height: getSize('Height', body, html, computedStyle),
@@ -14984,8 +14976,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = +styles.borderTopWidth.split('px')[0];
+  var borderLeftWidth = +styles.borderLeftWidth.split('px')[0];
 
   var offsets = getClientRect({
     top: childrenRect.top - parentRect.top - borderTopWidth,
@@ -15001,8 +14993,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = +styles.marginTop.split('px')[0];
+    var marginLeft = +styles.marginLeft.split('px')[0];
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -15081,7 +15073,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
     // Handle other cases based on DOM element used as boundaries
     var boundariesNode = void 0;
     if (boundariesElement === 'scrollParent') {
-      boundariesNode = getScrollParent(getParentNode(reference));
+      boundariesNode = getScrollParent(getParentNode(popper));
       if (boundariesNode.nodeName === 'BODY') {
         boundariesNode = popper.ownerDocument.documentElement;
       }
@@ -15207,7 +15199,7 @@ function getReferenceOffsets(state, popper, reference) {
  * @returns {Object} object containing width and height properties
  */
 function getOuterSizes(element) {
-  var styles = getComputedStyle(element);
+  var styles = window.getComputedStyle(element);
   var x = parseFloat(styles.marginTop) + parseFloat(styles.marginBottom);
   var y = parseFloat(styles.marginLeft) + parseFloat(styles.marginRight);
   var result = {
@@ -15424,7 +15416,7 @@ function getSupportedPropertyName(property) {
   for (var i = 0; i < prefixes.length - 1; i++) {
     var prefix = prefixes[i];
     var toCheck = prefix ? '' + prefix + upperProp : property;
-    if (typeof document.body.style[toCheck] !== 'undefined') {
+    if (typeof window.document.body.style[toCheck] !== 'undefined') {
       return toCheck;
     }
   }
@@ -15543,7 +15535,7 @@ function removeEventListeners(reference, state) {
  */
 function disableEventListeners() {
   if (this.state.eventsEnabled) {
-    cancelAnimationFrame(this.scheduleUpdate);
+    window.cancelAnimationFrame(this.scheduleUpdate);
     this.state = removeEventListeners(this.reference, this.state);
   }
 }
@@ -15783,8 +15775,6 @@ function isModifierRequired(modifiers, requestingName, requestedName) {
  * @returns {Object} The data object, properly modified
  */
 function arrow(data, options) {
-  var _data$offsets$arrow;
-
   // arrow depends on keepTogether in order to work
   if (!isModifierRequired(data.instance.modifiers, 'arrow', 'keepTogether')) {
     return data;
@@ -15836,23 +15826,22 @@ function arrow(data, options) {
   if (reference[side] + arrowElementSize > popper[opSide]) {
     data.offsets.popper[side] += reference[side] + arrowElementSize - popper[opSide];
   }
-  data.offsets.popper = getClientRect(data.offsets.popper);
 
   // compute center of the popper
   var center = reference[side] + reference[len] / 2 - arrowElementSize / 2;
 
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
-  var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
-  var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
+  var popperMarginSide = getStyleComputedProperty(data.instance.popper, 'margin' + sideCapitalized).replace('px', '');
+  var sideValue = center - getClientRect(data.offsets.popper)[side] - popperMarginSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
   sideValue = Math.max(Math.min(popper[len] - arrowElementSize, sideValue), 0);
 
   data.arrowElement = arrowElement;
-  data.offsets.arrow = (_data$offsets$arrow = {}, defineProperty(_data$offsets$arrow, side, Math.round(sideValue)), defineProperty(_data$offsets$arrow, altSide, ''), _data$offsets$arrow);
+  data.offsets.arrow = {};
+  data.offsets.arrow[side] = Math.round(sideValue);
+  data.offsets.arrow[altSide] = ''; // make sure to unset any eventual altSide value from the DOM node
 
   return data;
 }
@@ -16947,7 +16936,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(17)))
 
 /***/ }),
 /* 200 */
@@ -16965,7 +16954,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -17011,7 +17000,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -17096,7 +17085,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -17142,7 +17131,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -17236,7 +17225,7 @@ var _MdPortal = __webpack_require__(16);
 
 var _MdPortal2 = _interopRequireDefault(_MdPortal);
 
-var _MdOverlay = __webpack_require__(22);
+var _MdOverlay = __webpack_require__(23);
 
 var _MdOverlay2 = _interopRequireDefault(_MdOverlay);
 
@@ -17369,7 +17358,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -17418,7 +17407,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -17573,7 +17562,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -17677,7 +17666,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -17781,7 +17770,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -17954,7 +17943,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -18133,7 +18122,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -18367,7 +18356,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -18560,7 +18549,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -18719,7 +18708,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -18786,7 +18775,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdOverlay = __webpack_require__(22);
+var _MdOverlay = __webpack_require__(23);
 
 var _MdOverlay2 = _interopRequireDefault(_MdOverlay);
 
@@ -18947,7 +18936,7 @@ var _MdEmptyStateProps = __webpack_require__(42);
 
 var _MdEmptyStateProps2 = _interopRequireDefault(_MdEmptyStateProps);
 
-var _MdAssetIcon = __webpack_require__(17);
+var _MdAssetIcon = __webpack_require__(18);
 
 var _MdAssetIcon2 = _interopRequireDefault(_MdAssetIcon);
 
@@ -19015,7 +19004,7 @@ var _MdSelect = __webpack_require__(241);
 
 var _MdSelect2 = _interopRequireDefault(_MdSelect);
 
-var _MdField = __webpack_require__(19);
+var _MdField = __webpack_require__(20);
 
 var _MdField2 = _interopRequireDefault(_MdField);
 
@@ -19296,7 +19285,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -19729,7 +19718,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -19773,7 +19762,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -19911,8 +19900,7 @@ exports.default = {
         dense: this.mdDense,
         closeOnSelect: this.mdCloseOnSelect,
         bodyClickObserver: null,
-        windowResizeObserver: null,
-        $el: this.$el
+        windowResizeObserver: null
       }
     };
   },
@@ -19961,6 +19949,7 @@ exports.default = {
   },
   methods: {
     toggleContent: function toggleContent($event) {
+      $event.stopPropagation();
       this.MdMenu.active = !this.MdMenu.active;
     }
   },
@@ -19970,11 +19959,10 @@ exports.default = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              this.MdMenu.$el = this.$el;
-              _context.next = 3;
+              _context.next = 2;
               return this.$nextTick();
 
-            case 3:
+            case 2:
 
               this.triggerEl = this.$el.querySelector('[md-menu-trigger]');
 
@@ -19982,7 +19970,7 @@ exports.default = {
                 this.triggerEl.addEventListener('click', this.toggleContent);
               }
 
-            case 5:
+            case 4:
             case 'end':
               return _context.stop();
           }
@@ -20038,7 +20026,7 @@ var _MdResizeObserver = __webpack_require__(251);
 
 var _MdResizeObserver2 = _interopRequireDefault(_MdResizeObserver);
 
-var _MdPopover = __webpack_require__(24);
+var _MdPopover = __webpack_require__(25);
 
 var _MdPopover2 = _interopRequireDefault(_MdPopover);
 
@@ -20270,8 +20258,8 @@ exports.default = new _MdComponent2.default({
       if (document) {
         this.MdMenu.bodyClickObserver = new _MdObserveEvent2.default(document.body, 'click', function ($event) {
           $event.stopPropagation();
-          var isMdMenu = _this2.MdMenu.$el ? _this2.MdMenu.$el.contains($event.target) : false;
-          if (!_this2.$el.contains($event.target) && !isMdMenu) {
+
+          if (!_this2.$el.contains($event.target)) {
             _this2.MdMenu.active = false;
             _this2.MdMenu.bodyClickObserver.destroy();
             _this2.MdMenu.windowResizeObserver.destroy();
@@ -20471,7 +20459,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -20682,7 +20670,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -20864,7 +20852,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -21032,7 +21020,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -21081,7 +21069,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -21197,7 +21185,7 @@ var render = function() {
         _vm.attributes,
         false
       ),
-      _vm.listeners
+      _vm.$listeners
     )
   )
 }
@@ -21219,7 +21207,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -21267,19 +21255,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
@@ -21294,7 +21269,18 @@ var _MdFieldMixin2 = _interopRequireDefault(_MdFieldMixin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; } //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 function calculateContentHeight(el, lineHeight) {
   var origHeight = el.style.height;
@@ -21330,15 +21316,6 @@ exports.default = new _MdComponent2.default({
     mdAutogrow: Boolean
   },
   computed: {
-    listeners: function listeners() {
-      var _this = this;
-
-      return _extends({}, this.$listeners, {
-        input: function input(event) {
-          return _this.$emit('input', event.target.value);
-        }
-      });
-    },
     textareaStyles: function textareaStyles() {
       return {
         height: this.textareaHeight
@@ -21364,7 +21341,7 @@ exports.default = new _MdComponent2.default({
     },
     applyStyles: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var _this2 = this;
+        var _this = this;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -21382,7 +21359,7 @@ exports.default = new _MdComponent2.default({
               case 4:
                 this.setTextAreaSize();
                 window.setTimeout(function () {
-                  _this2.$el.style.overflow = 'auto';
+                  _this.$el.style.overflow = 'auto';
                 }, 10);
 
               case 6:
@@ -21490,7 +21467,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -21721,7 +21698,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -22007,7 +21984,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22126,7 +22103,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22246,7 +22223,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22365,7 +22342,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22488,7 +22465,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22633,7 +22610,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -22777,7 +22754,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -22823,7 +22800,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -22981,7 +22958,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -23191,7 +23168,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -23386,7 +23363,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -23742,7 +23719,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -24009,7 +23986,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -24208,7 +24185,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = true
+  var __vue_template_functional__ = true
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -24453,7 +24430,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -24625,7 +24602,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -24750,7 +24727,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -24980,7 +24957,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -25038,7 +25015,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdObserveElement = __webpack_require__(25);
+var _MdObserveElement = __webpack_require__(26);
 
 var _MdObserveElement2 = _interopRequireDefault(_MdObserveElement);
 
@@ -25450,7 +25427,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -25496,7 +25473,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -25581,7 +25558,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -25627,7 +25604,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -25712,7 +25689,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -25761,7 +25738,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -25889,7 +25866,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -26159,7 +26136,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -26379,7 +26356,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -26506,7 +26483,7 @@ var _MdTableRow = __webpack_require__(51);
 
 var _MdTableRow2 = _interopRequireDefault(_MdTableRow);
 
-var _MdTableHead = __webpack_require__(26);
+var _MdTableHead = __webpack_require__(27);
 
 var _MdTableHead2 = _interopRequireDefault(_MdTableHead);
 
@@ -26739,7 +26716,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -27103,7 +27080,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -27224,7 +27201,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -27272,7 +27249,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _MdTableHead = __webpack_require__(26);
+var _MdTableHead = __webpack_require__(27);
 
 var _MdTableHead2 = _interopRequireDefault(_MdTableHead);
 
@@ -27498,7 +27475,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, true)
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
@@ -27546,7 +27523,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -27672,7 +27649,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -27720,7 +27697,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _MdTableHead = __webpack_require__(26);
+var _MdTableHead = __webpack_require__(27);
 
 var _MdTableHead2 = _interopRequireDefault(_MdTableHead);
 
@@ -27833,7 +27810,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -28115,7 +28092,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -28225,7 +28202,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -28386,7 +28363,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -28510,7 +28487,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -28770,7 +28747,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -29084,7 +29061,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -29179,7 +29156,7 @@ var _MdComponent = __webpack_require__(2);
 
 var _MdComponent2 = _interopRequireDefault(_MdComponent);
 
-var _MdAssetIcon = __webpack_require__(17);
+var _MdAssetIcon = __webpack_require__(18);
 
 var _MdAssetIcon2 = _interopRequireDefault(_MdAssetIcon);
 
@@ -29187,7 +29164,7 @@ var _MdPropValidator = __webpack_require__(4);
 
 var _MdPropValidator2 = _interopRequireDefault(_MdPropValidator);
 
-var _MdObserveElement = __webpack_require__(25);
+var _MdObserveElement = __webpack_require__(26);
 
 var _MdObserveElement2 = _interopRequireDefault(_MdObserveElement);
 
@@ -29548,7 +29525,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 var __vue_template__ = null
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -29602,7 +29579,7 @@ var _MdUuid = __webpack_require__(6);
 
 var _MdUuid2 = _interopRequireDefault(_MdUuid);
 
-var _MdObserveElement = __webpack_require__(25);
+var _MdObserveElement = __webpack_require__(26);
 
 var _MdObserveElement2 = _interopRequireDefault(_MdObserveElement);
 
@@ -29846,7 +29823,7 @@ var normalizeComponent = __webpack_require__(0)
 /* template */
 
 /* template functional */
-var __vue_template_functional__ = false
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
@@ -29919,7 +29896,7 @@ var _MdPropValidator = __webpack_require__(4);
 
 var _MdPropValidator2 = _interopRequireDefault(_MdPropValidator);
 
-var _MdPopover = __webpack_require__(24);
+var _MdPopover = __webpack_require__(25);
 
 var _MdPopover2 = _interopRequireDefault(_MdPopover);
 

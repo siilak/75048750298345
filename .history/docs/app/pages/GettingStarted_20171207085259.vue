@@ -43,10 +43,10 @@
       <note-block alert>Although is not recommended you can use the full bundle of Tele2 Material. This will import <strong>ALL</strong> components and UI Elements, and will hurt performance:</note-block>
       <code-example title="Full Bundle">
         import Vue from 'vue'
-        import VueMaterial from 'tele2-material'
+        import Tele2Material from 'tele2-material'
         import 'tele2-material/dist/tele2-material.min.css'
 
-        Vue.use(VueMaterial)
+        Vue.use(Tele2Material)
       </code-example>
 
       <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
@@ -71,7 +71,7 @@
             &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
             &lt;script src="https://unpkg.com/tele2-material@beta"&gt;&lt;/script&gt;
             &lt;script&gt;
-              Vue.use(VueMaterial.default)
+              Vue.use(Tele2Material.default)
 
               new Vue({
                 el: '#app'

@@ -1,10 +1,10 @@
 import 'regenerator-runtime/runtime'
 import Vue from 'vue'
-import VueMaterial from 'src/material'
+import Tele2Material from 'src/material'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
-Vue.use(VueMaterial)
+Vue.use(Tele2Material)
 
 Vue.component('transition', {
   abstract: true,

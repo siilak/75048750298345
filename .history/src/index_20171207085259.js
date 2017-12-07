@@ -2,7 +2,7 @@ import 'regenerator-runtime/runtime'
 import material from './material'
 import * as MdComponents from './components'
 
-let VueMaterial = Vue => {
+let Tele2Material = Vue => {
   material(Vue)
 
   Object.values(MdComponents).forEach((MdComponent) => {
@@ -10,6 +10,6 @@ let VueMaterial = Vue => {
   })
 }
 
-VueMaterial.version = '__VERSION__'
+Tele2Material.version = '__VERSION__'
 
-export default VueMaterial
+export default Tele2Material

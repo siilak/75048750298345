@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import VueMaterial from './index'
+import Tele2Material from './index'
 import mountTemplate from 'test/utils/mountTemplate'
 
-Vue.use(VueMaterial)
+Vue.use(Tele2Material)
 
 const app = new Vue({
   el: '#app',

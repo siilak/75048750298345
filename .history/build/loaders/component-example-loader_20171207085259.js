@@ -13,7 +13,7 @@ function camelCaseToDash (str) {
 
 function getComponentScript (script) {
   return getIndentedSource(`
-    Vue.use(VueMaterial.default)
+    Vue.use(Tele2Material.default)
 
     ${script}
 

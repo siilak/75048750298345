@@ -15,7 +15,7 @@
     <main-footer />
 
     <md-snackbar class="version-message" md-theme="default" :md-active.sync="message" :md-duration="Infinity">
-      <span>This site is for the Tele2 Material 1.0 beta.</span>
+      <span>This site is for the Tele2 Material 1.0</span>
       <div>
         <md-button href="https://tele2-material-old.netlify.com/" target="_blank">Visit old docs</md-button>
         <md-button class="md-accent" @click="closeMessage">Dismiss</md-button>
@@ -100,7 +100,7 @@
     padding-top: 64px;
     display: flex;
     flex-direction: column;
-    font-family: "Roboto Mono", monospace;
+    font-family: "Helvetica-Neue", Helvetica, Arial, sans-serif;
     transition: $md-transition-default;
     transition-property: padding-top;
 

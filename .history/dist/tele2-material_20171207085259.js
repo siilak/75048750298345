@@ -9,9 +9,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["vue"], factory);
 	else if(typeof exports === 'object')
-		exports["VueMaterial"] = factory(require("vue"));
+		exports["Tele2Material"] = factory(require("vue"));
 	else
-		root["VueMaterial"] = factory(root["Vue"]);
+		root["Tele2Material"] = factory(root["Vue"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_7__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -4575,7 +4575,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var VueMaterial = function VueMaterial(Vue) {
+var Tele2Material = function Tele2Material(Vue) {
   (0, _material2.default)(Vue);
 
   Object.values(MdComponents).forEach(function (MdComponent) {
@@ -4583,9 +4583,9 @@ var VueMaterial = function VueMaterial(Vue) {
   });
 };
 
-VueMaterial.version = '__VERSION__';
+Tele2Material.version = '__VERSION__';
 
-exports.default = VueMaterial;
+exports.default = Tele2Material;
 
 /***/ }),
 /* 55 */

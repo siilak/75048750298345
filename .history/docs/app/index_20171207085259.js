@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime'
 import Vue from 'vue'
 import ga from 'vue-ga'
 import { sync } from 'vuex-router-sync'
-import VueMaterial from 'tele2-material'
+import Tele2Material from 'tele2-material'
 
 /* App */
 import App from './App'
@@ -12,7 +12,7 @@ import store from './store'
 import './components'
 
 Vue.config.productionTip = false
-Vue.use(VueMaterial)
+Vue.use(Tele2Material)
 
 ga(router, 'UA-85823257-1')
 sync(store, router)
