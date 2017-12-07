@@ -1,0 +1,91 @@
+<template>
+  <page-container centered :title="$t('pages.gettingStarted.title')">
+    <note-block warning>Disclaimer: This is a beta version. The API is not going to change, but be careful to use it in production.</note-block>
+
+    <div class="page-container-section">
+      <h2 class="md-headline">Introduction</h2>
+
+      <p>Tele2 Material is the best integration between Vue.js and Material Design specs! You can easily configure it to suit all your needs through and easy API.</p>
+      <p>The documentation is divided by Themes, Components and UI Elements. The themes area is the definitive guide on how to theme your application (or write your own themes). And the Components and UI Elements parts shows live examples, along with a API Table of each component/resource.</p>
+      <note-block>Tele2 Material Documentation assumes that you are confortable with Vue.js <strong>2.5+</strong>. If you are new to Vue.js, it might not be the best idea to learn from here as your first step - grasp the basics then come back. The <a href="https://vuejs.org/v2/guide/index.html">Vue.js website</a> is the greatest documentation source for you start with.</note-block>
+    </div>
+
+    <div class="page-container-section">
+      <h2 class="md-headline">{{ $t('pages.gettingStarted.installation') }}</h2>
+
+      <p>You can install Tele2 Material through NPM or Yarn:</p>
+      <code-example :title="$t('pages.gettingStarted.npmOrYarn')" label="Shell" lang="shell">
+        $ npm install tele2-material@beta --save
+        $ yarn add tele2-material@beta
+      </code-example>
+
+      <p>It's optional, but to have the best experience possible, use Roboto and Google Icons from Google CDN:</p>
+      <code-example title="Roboto Font and Icons" label="HTML" lang="html">
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons&quot;&gt;
+      </code-example>
+
+    </div>
+
+    <div class="page-container-section">
+      <h2 class="md-headline">Usage</h2>
+
+      <p>To use Tele2 Material in your application, you can import only the components that you're really using. This will allow you to make your build way more compact than installing a full bundle.</p>
+      <code-example title="Individual components">
+        import Vue from 'vue'
+        import { MdButton, MdContent, MdTabs } from 'tele2-material/dist/components'
+        import 'tele2-material/dist/tele2-material.min.css'
+
+        Vue.use(MdButton)
+        Vue.use(MdContent)
+        Vue.use(MdTabs)
+      </code-example>
+
+      <note-block alert>Although is not recommended you can use the full bundle of Tele2 Material. This will import <strong>ALL</strong> components and UI Elements, and will hurt performance:</note-block>
+      <code-example title="Full Bundle">
+        import Vue from 'vue'
+        import Tele2Material from 'tele2-material'
+        import 'tele2-material/dist/tele2-material.min.css'
+
+        Vue.use(Tele2Material)
+      </code-example>
+
+      <p>Although is not the recommended approach, you can always use CDNs for fast prototyping:</p>
+      <note-block tip>For better integration with Tele2 Material, use <a href="https://github.com/vuejs-templates/webpack" target="_blank">vue-cli</a>.</note-block>
+
+      <code-example title="CDN" label="HTML" lang="html">
+        &lt;!doctype html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+            &lt;meta charset="utf-8"&gt;
+            &lt;meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport"&gt;
+            &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/tele2-material@beta/dist/tele2-material.min.css"&gt;
+          	&lt;link rel="stylesheet" href="https://unpkg.com/tele2-material@beta/dist/theme/default.css"&gt;
+          &lt;/head&gt;
+
+          &lt;body&gt;
+            &lt;div id="app"&gt;
+              &lt;!-- Your code here --&gt;
+            &lt;/div&gt;
+
+            &lt;script src="https://unpkg.com/vue"&gt;&lt;/script&gt;
+            &lt;script src="https://unpkg.com/tele2-material@beta"&gt;&lt;/script&gt;
+            &lt;script&gt;
+              Vue.use(Tele2Material.default)
+
+              new Vue({
+                el: '#app'
+              })
+            &lt;/script&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;
+      </code-example>
+    </div>
+  </page-container>
+</template>
+
+<script>
+  export default {
+    name: 'GettingStarted'
+  }
+</script>
