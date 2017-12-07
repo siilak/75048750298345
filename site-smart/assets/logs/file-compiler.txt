@@ -1,0 +1,13 @@
+2017-12-04 02:32:10	guest	http://pv/api/nav/?listing=1&parent_included=1	Compiled file: /site/templates/nav.php
+2017-12-04 02:32:10	guest	http://pv/api/pages/	Compiled file: /site/templates/pages.php
+2017-12-04 02:32:10	guest	http://pv/api/pages/	Compiled file: /site/templates/inc/pagefields.php
+2017-12-04 02:32:10	guest	http://pv/api/nav/?listing=1&parent_included=1	Compiled file: /site/templates/inc/pagefields.php
+2017-12-04 06:50:35	guest	http://smart.dev/api/pages/	Compiled file: /site/templates/pages.php
+2017-12-04 06:50:35	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site/templates/nav.php
+2017-12-04 06:50:35	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site/templates/inc/pagefields.php
+2017-12-04 06:50:35	guest	http://smart.dev/api/pages/	Compiled file: /site/templates/inc/pagefields.php
+2017-12-04 06:57:38	guest	http://smart.dev/api/pages/	Compiled file: /site-smart/templates/pages.php
+2017-12-04 06:57:38	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/nav.php
+2017-12-04 06:57:38	guest	http://smart.dev/api/pages/	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-04 07:16:30	admin	http://smart.dev/processwire/module/download/	Compiled file: /site-smart/modules/ProcessDatabaseBackups/ProcessDatabaseBackups.module
+2017-12-06 04:30:36	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Maintenance/Copy new version of source file to target file: /site-smart/templates/home.php => /site-smart/assets/cache/FileCompiler/site-smart/templates/home.php

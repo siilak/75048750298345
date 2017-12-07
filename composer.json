@@ -1,0 +1,23 @@
+{
+  "name": "processwire/processwire",
+  "type": "library",
+  "description": "ProcessWire CMS/CMF",
+  "keywords": [ "processwire", "cms","cmf", "content management system" ],
+  "license": "MPL-2.0",
+  "homepage": "https://tele2.wire",
+  "authors": [
+    {
+      "name": "Marko Siilak",
+      "email": "marko.siilak@tele2.com",
+      "homepage": "http://www.tele2.ee",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.8",
+    "ext-gd": "*"
+  },
+  "autoload": {
+    "files": [ "wire/core/ProcessWire.php" ]
+  }
+}

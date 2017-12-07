@@ -1,0 +1,3 @@
+2017-12-04 07:00:26	guest	http://smart.dev/processwire/login/	Created session path /Volumes/Working/Tele2/wire-vue/site-smart/assets/sessions/ (WireLog)
+2017-12-04 07:38:48	admin	http://smart.dev/processwire/setup/template/removeFields	Deleted field "summary" data in 1 row(s) from 1 page(s). [page-by-page] (Fields)
+2017-12-04 07:50:59	admin	http://smart.dev/processwire/setup/template/removeFields	Deleted field "summary" data in 0 row(s) from 0 page(s). [page-by-page] (Fields)

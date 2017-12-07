@@ -1,18 +1,11 @@
 {
   "name": "tele2-material",
   "description": "Material Design for Vue.js",
-  "version": "1.0.0-beta-7",
+  "version": "1.0.0",
   "license": "MIT",
   "author": {
-    "name": "siilak",
-    "email": "marcosvmmoura@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vuematerial/tele2-material.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vuematerial/tele2-material/issues"
+    "name": "Marko Siilak",
+    "email": "marko.siilak@tele2.com"
   },
   "files": [
     "dist",

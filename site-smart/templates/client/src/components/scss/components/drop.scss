@@ -1,0 +1,74 @@
+// Name:            Drop
+// Description:     Component to position any element next to any other element.
+//
+// Component:       `tele2-drop`
+//
+// Modifiers:       `tele2-drop-top-*`
+//                  `tele2-drop-bottom-*`
+//                  `tele2-drop-left-*`
+//                  `tele2-drop-right-*`
+//                  `tele2-drop-stack`
+//                  `tele2-drop-grid`
+//
+// States:          `tele2-open`
+//
+// Uses:            Animation
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$drop-z-index:                               $global-z-index + 20 !default;
+$drop-width:                                 300px !default;
+$drop-margin:                                $global-margin !default;
+
+
+/* ========================================================================
+   Component: Drop
+ ========================================================================== */
+
+/*
+ * 1. Hide by default
+ * 2. Set position
+ * 3. Set a default width
+ */
+
+.tele2-drop {
+    /* 1 */
+    display: none;
+    /* 2 */
+    position: absolute;
+    z-index: $drop-z-index;
+    /* 3 */
+    box-sizing: border-box;
+    width: $drop-width;
+}
+
+/* Show */
+.tele2-drop.tele2-open { display: block; }
+
+
+/* Direction / Alignment modifiers
+ ========================================================================== */
+
+/* Direction */
+[class*='tele2-drop-top'] { margin-top: (-$drop-margin); }
+[class*='tele2-drop-bottom'] { margin-top: $drop-margin; }
+[class*='tele2-drop-left'] { margin-left: (-$drop-margin); }
+[class*='tele2-drop-right'] { margin-left: $drop-margin; }
+
+
+/* Grid modifiers
+ ========================================================================== */
+
+.tele2-drop-stack .tele2-drop-grid > * { width: 100% !important; }
+
+
+// Hooks
+// ========================================================================
+
+@if(mixin-exists(hook-drop-misc)) {@include hook-drop-misc();}
+
+// @mixin hook-drop-misc(){}

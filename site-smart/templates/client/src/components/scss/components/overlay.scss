@@ -1,0 +1,85 @@
+// Name:            Overlay
+// Description:     Component to create content areas overlaying an image
+//
+// Component:       `tele2-overlay`
+//
+// Adopted:         `tele2-overlay-icon`
+//
+// Modifier:        `tele2-overlay-default`
+//                  `tele2-overlay-primary`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$overlay-padding-horizontal:                     $global-gutter !default;
+$overlay-padding-vertical:                       $global-gutter !default;
+
+$overlay-default-background:                     rgba($global-background, 0.8) !default;
+
+$overlay-primary-background:                     rgba($global-secondary-background, 0.8) !default;
+$overlay-primary-color-mode:                     light !default;
+
+
+/* ========================================================================
+   Component: Overlay
+ ========================================================================== */
+
+.tele2-overlay {
+    padding: $overlay-padding-vertical $overlay-padding-horizontal;
+    @if(mixin-exists(hook-overlay)) {@include hook-overlay();}
+}
+
+/*
+ * Remove margin from the last-child
+ */
+
+.tele2-overlay > :last-child { margin-bottom: 0; }
+
+
+/* Icon
+ ========================================================================== */
+
+.tele2-overlay-icon {
+    @if(mixin-exists(hook-overlay-icon)) {@include hook-overlay-icon();}
+}
+
+
+/* Style modifiers
+ ========================================================================== */
+
+/*
+ * Default
+ */
+
+.tele2-overlay-default {
+    background: $overlay-default-background;
+    @if(mixin-exists(hook-overlay-default)) {@include hook-overlay-default();}
+}
+
+/*
+ * Primary
+ */
+
+.tele2-overlay-primary {
+    background: $overlay-primary-background;
+    @if(mixin-exists(hook-overlay-primary)) {@include hook-overlay-primary();}
+}
+
+// Color Mode
+@if ( $overlay-primary-color-mode == light ) { .tele2-overlay-primary { @extend .tele2-light !optional;} }
+@if ( $overlay-primary-color-mode == dark ) { .tele2-overlay-primary { @extend .tele2-dark !optional;} }
+
+
+// Hooks
+// ========================================================================
+
+@if(mixin-exists(hook-overlay-misc)) {@include hook-overlay-misc();}
+
+// @mixin hook-overlay(){}
+// @mixin hook-overlay-icon(){}
+// @mixin hook-overlay-default(){}
+// @mixin hook-overlay-primary(){}
+// @mixin hook-overlay-misc(){}

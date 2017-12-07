@@ -1,0 +1,279 @@
+// Name:            Position
+// Description:     Utilities to position content
+//
+// Component:       `tele2-position-absolute`
+//                  `tele2-position-relative`
+//                  `tele2-position-z-index`
+//                  `tele2-position-top`
+//                  `tele2-position-bottom`
+//                  `tele2-position-left`
+//                  `tele2-position-right`
+//                  `tele2-position-top-left`
+//                  `tele2-position-top-center`
+//                  `tele2-position-top-right`
+//                  `tele2-position-bottom-left`
+//                  `tele2-position-bottom-center`
+//                  `tele2-position-bottom-right`
+//                  `tele2-position-center`
+//                  `tele2-position-center-left`
+//                  `tele2-position-center-right`
+//                  `tele2-position-cover`
+//
+// Modifiers:       `tele2-position-small`
+//                  `tele2-position-medium`
+//                  `tele2-position-large`
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$position-small-margin:                                 $global-small-gutter !default;
+$position-medium-margin:                                $global-gutter !default;
+$position-large-margin:                                 $global-gutter !default;
+$position-large-margin-l:                               50px !default;
+
+
+/* ========================================================================
+   Component: Position
+ ========================================================================== */
+
+
+/* Directions
+ ========================================================================== */
+
+[class*='tele2-position-top'],
+[class*='tele2-position-bottom'],
+[class*='tele2-position-left'],
+[class*='tele2-position-right'],
+[class*='tele2-position-center'] { position: absolute !important; }
+
+
+/* Edges
+ ========================================================================== */
+
+/* Don't use `width: 100%` because it is wrong if the parent has padding. */
+.tele2-position-top {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.tele2-position-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tele2-position-left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.tele2-position-right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* Corners
+ ========================================================================== */
+
+.tele2-position-top-left {
+    top: 0;
+    left: 0;
+}
+
+.tele2-position-top-right {
+    top: 0;
+    right: 0;
+}
+
+.tele2-position-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.tele2-position-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/*
+ * Center
+ * 1. Fix text wrapping if content is larger than 50% of the container (Not working in Firefox)
+ * 2. Fix text wrapping for Firefox
+ */
+
+.tele2-position-center {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    /* 1 */
+    display: table;
+    /* 2 */
+    width: -moz-max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Vertical */
+.tele2-position-center-left,
+.tele2-position-center-right {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.tele2-position-center-left { left: 0; }
+.tele2-position-center-right { right: 0; }
+
+/* Horizontal */
+.tele2-position-top-center,
+.tele2-position-bottom-center {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* 1 */
+    display: table;
+    /* 2 */
+    width: -moz-max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.tele2-position-top-center { top: 0; }
+.tele2-position-bottom-center { bottom: 0; }
+
+
+/* Cover
+ ========================================================================== */
+
+.tele2-position-cover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+/* Utility
+ ========================================================================== */
+
+.tele2-position-relative { position: relative !important; }
+
+.tele2-position-absolute { position: absolute !important; }
+
+.tele2-position-fixed { position: fixed !important; }
+
+.tele2-position-z-index { z-index: 1; }
+
+
+/* Margin modifier
+ ========================================================================== */
+
+/*
+ * Small
+ */
+
+.tele2-position-small { margin: $position-small-margin; }
+
+.tele2-position-small.tele2-position-center {
+    -webkit-transform: translate(-50%, -50%) translate(-$position-small-margin, (-$position-small-margin));
+    transform: translate(-50%, -50%) translate(-$position-small-margin, (-$position-small-margin));
+}
+
+.tele2-position-small.tele2-position-center-left,
+.tele2-position-small.tele2-position-center-right {
+    -webkit-transform: translateY(-50%) translateY(-$position-small-margin);
+    transform: translateY(-50%) translateY(-$position-small-margin);
+}
+
+.tele2-position-small.tele2-position-top-center,
+.tele2-position-small.tele2-position-bottom-center {
+    -webkit-transform: translateX(-50%) translateX(-$position-small-margin);
+    transform: translateX(-50%) translateX(-$position-small-margin);
+}
+
+/*
+ * Medium
+ */
+
+.tele2-position-medium { margin: $position-medium-margin; }
+
+.tele2-position-medium.tele2-position-center {
+    -webkit-transform: translate(-50%, -50%) translate(-$position-medium-margin, (-$position-medium-margin));
+    transform: translate(-50%, -50%) translate(-$position-medium-margin, (-$position-medium-margin));
+}
+
+.tele2-position-medium.tele2-position-center-left,
+.tele2-position-medium.tele2-position-center-right {
+    -webkit-transform: translateY(-50%) translateY(-$position-medium-margin);
+    transform: translateY(-50%) translateY(-$position-medium-margin);
+}
+
+.tele2-position-medium.tele2-position-top-center,
+.tele2-position-medium.tele2-position-bottom-center {
+    -webkit-transform: translateX(-50%) translateX(-$position-medium-margin);
+    transform: translateX(-50%) translateX(-$position-medium-margin);
+}
+
+/*
+ * Large
+ */
+
+.tele2-position-large { margin: $position-large-margin; }
+
+.tele2-position-large.tele2-position-center {
+    -webkit-transform: translate(-50%, -50%) translate(-$position-large-margin, (-$position-large-margin));
+    transform: translate(-50%, -50%) translate(-$position-large-margin, (-$position-large-margin));
+}
+
+.tele2-position-large.tele2-position-center-left,
+.tele2-position-large.tele2-position-center-right {
+    -webkit-transform: translateY(-50%) translateY(-$position-large-margin);
+    transform: translateY(-50%) translateY(-$position-large-margin);
+}
+
+.tele2-position-large.tele2-position-top-center,
+.tele2-position-large.tele2-position-bottom-center {
+    -webkit-transform: translateX(-50%) translateX(-$position-large-margin);
+    transform: translateX(-50%) translateX(-$position-large-margin);
+}
+
+/* Desktop and bigger */
+@media (min-width: $breakpoint-large) {
+
+    .tele2-position-large { margin: $position-large-margin-l; }
+
+    .tele2-position-large.tele2-position-center {
+        -webkit-transform: translate(-50%, -50%) translate(-$position-large-margin-l, (-$position-large-margin-l));
+        transform: translate(-50%, -50%) translate(-$position-large-margin-l, (-$position-large-margin-l));
+    }
+
+    .tele2-position-large.tele2-position-center-left,
+    .tele2-position-large.tele2-position-center-right {
+        -webkit-transform: translateY(-50%) translateY(-$position-large-margin-l);
+        transform: translateY(-50%) translateY(-$position-large-margin-l);
+    }
+
+    .tele2-position-large.tele2-position-top-center,
+    .tele2-position-large.tele2-position-bottom-center {
+        -webkit-transform: translateX(-50%) translateX(-$position-large-margin-l);
+        transform: translateX(-50%) translateX(-$position-large-margin-l);
+    }
+
+}
+
+
+// Hooks
+// ========================================================================
+
+@if(mixin-exists(hook-position-misc)) {@include hook-position-misc();}
+
+// @mixin hook-position-misc(){}
