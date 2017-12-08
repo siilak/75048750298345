@@ -2,7 +2,7 @@
   <div class="default typography" v-if="loadedData">
     
     <v-layout row transition="fade-in">
-      <v-flex xs12 sm6>
+      <v-flex xs12>
   
         <transition name="fade">
           <h1>{{ pageData.title }}</h1>
@@ -16,7 +16,7 @@
       
       </v-flex>
       
-      <v-flex xs12 sm6>
+      <v-flex xs12>
         <div class="txt" v-html="pageData.content"></div>
       </v-flex>
       

@@ -1,28 +1,28 @@
 <template>
   <div id="app" @click="linkHandler" v-if="loadedData">
-    <v-app id="example-2" toolbar>
-      <v-navigation-drawer temporary v-model="drawer" :mini-variant.sync="mini" light overflow absolute>
+    <v-app id="smart" dark toolbar>
+      <v-navigation-drawer temporary v-model="drawer" :mini-variant.sync="mini" dark overflow absolute>
         <v-chip>
           <v-avatar>
             <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="trevor">
           </v-avatar>
           Marko Siilak
         </v-chip>
+        <NavigationSide></NavigationSide>
       </v-navigation-drawer>
-      <v-toolbar fixed class="black" dark>
+      <v-toolbar fixed class="material-dark" dark>
         <v-toolbar-side-icon @click.stop="drawer = !drawer">
           <v-logo>
             <img src="./../assets/logo.svg">
           </v-logo>
         </v-toolbar-side-icon>
-        <v-toolbar-title>{{ pageData.title }}</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="margin-righ hidden-sm-and-down">
           <Navigation></Navigation>
         </v-toolbar-items>
       </v-toolbar>
       <main>
-        <v-container fluid>
+        <v-container>
           <loader></loader>
           <router-view></router-view>
           <!--v-router-->
@@ -33,81 +33,87 @@
 </template>
 
 <script>
-import * as config from '@/config'
-import router from '@/router'
-import { mapGetters } from 'vuex'
-import Navigation from '@/components/Navigation'
-import Loader from '@/components/Loader'
-import Footer from '@/components/Footer'
+  import * as config from '@/config'
+  import router from '@/router'
+  import {
+    mapGetters
+  } from 'vuex'
+  import Navigation from '@/components/Navigation'
+  import NavigationSide from '@/components/NavigationSide'
+  import Loader from '@/components/Loader'
+  import Footer from '@/components/Footer'
 
-export default {
-  name: 'App',
-  components: {
-    Navigation,
-    Footer,
-    Loader
-  },
-  data() {
-    return {
-      drawer: null,
-      mini: false,
-      right: null
-    }
-  },
-  computed: {
-    loadedData() {
-      return !this.loading
+  export default {
+    name: 'App',
+    components: {
+      Navigation,
+      NavigationSide,
+      Footer,
+      Loader
     },
-    ...mapGetters([
-      'pageData'
-    ])
-  },
-  methods: {
-    fetchData() {
-      this.$store.dispatch('setNavData', '?listing=1&parent_included=1').then(() => {
-        this.loading = false
-      })
-    },
-    checkDomain(url) {
-      if (url.indexOf('//') === 0) {
-        url = window.location.protocol + url
+    data() {
+      return {
+        drawer: null,
+        mini: false,
+        right: null
       }
-      return url.toLowerCase().replace(/([a-z])?:\/\//, '$1').split('/')[0]
     },
-    linkIsExternal(url) {
-      return ((url.indexOf(':') > -1 || url.indexOf('//') > -1) && this.checkDomain(window.location.href) !== this.checkDomain(url))
+    computed: {
+      loadedData() {
+        return !this.loading
+      },
+      ...mapGetters([
+        'pageData'
+      ])
     },
-    linkHandler(e) {
-      let $typ = e.target.closest('.typography')
-      let $link = e.target.closest('a')
-      if (!$typ || !$link) return
+    methods: {
+      fetchData() {
+        this.$store.dispatch('setNavData', '?listing=1&parent_included=1').then(() => {
+          this.loading = false
+        })
+      },
+      checkDomain(url) {
+        if (url.indexOf('//') === 0) {
+          url = window.location.protocol + url
+        }
+        return url.toLowerCase().replace(/([a-z])?:\/\//, '$1').split('/')[0]
+      },
+      linkIsExternal(url) {
+        return ((url.indexOf(':') > -1 || url.indexOf('//') > -1) && this.checkDomain(window.location.href) !== this.checkDomain(
+          url))
+      },
+      linkHandler(e) {
+        let $typ = e.target.closest('.typography')
+        let $link = e.target.closest('a')
+        if (!$typ || !$link) return
 
-      let linkHref = $link.getAttribute('href')
-      if (this.linkIsExternal(linkHref)) return
+        let linkHref = $link.getAttribute('href')
+        if (this.linkIsExternal(linkHref)) return
 
-      e.preventDefault()
-      router.push({ path: linkHref })
-    }
-  },
-  metaInfo() {
-    return {
-      title: this.pageData.title || config.titleFallback,
-      meta: [
-        {
+        e.preventDefault()
+        router.push({
+          path: linkHref
+        })
+      }
+    },
+    metaInfo() {
+      return {
+        title: this.pageData.title || config.titleFallback,
+        meta: [{
           vmid: 'description',
           name: 'description',
           content: this.pageData.summary || config.description
+        }],
+        bodyAttrs: {
+          class: `-${this.pageData.template}`
         }
-      ],
-      bodyAttrs: {
-        class: `-${this.pageData.template}`
       }
+    },
+    created() {
+      this.fetchData()
     }
-  },
-  created() {
-    this.fetchData()
   }
-}
+
 </script>
 
 <style lang="scss">
@@ -122,4 +128,5 @@ export default {
     transform: translate(-50%, -50%);
     text-align: center;
   }
+
 </style>

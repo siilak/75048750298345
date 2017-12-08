@@ -19,6 +19,24 @@ $app_color = {
   "accent-3":   #FF1744,
   "accent-4":   #D50000
 }
+
+$indigo = {
+  "base":       #3f51b5,
+  "lighten-5":  #e8eaf6,
+  "lighten-4":  #c5cae9,
+  "lighten-3":  #9fa8da,
+  "lighten-2":  #7986cb,
+  "lighten-1":  #5c6bc0,
+  "darken-1":   #3949ab,
+  "darken-2":   #303f9f,
+  "darken-3":   #283593,
+  "darken-4":   #1a237e,
+  "accent-1":   #8c9eff,
+  "accent-2":   #536dfe,
+  "accent-3":   #3d5afe,
+  "accent-4":   #304ffe
+}
+
 // Variables
 
 @font-face {
@@ -96,8 +114,6 @@ $theme := {
   success: $green.base
 }
 
-// Material Design - https://material.io/guidelines/style/color.html#color-usability
-// ============================================================
 $material-light := {
   status-bar: {
     regular: #E0E0E0,
@@ -169,11 +185,11 @@ $material-light := {
 
 $material-dark := {
   status-bar: {
-    regular: #000000,
+    regular: $white,
     lights-out: rgba(#000, .2)
   },
-  app-bar: #212121,
-  background: #141414,
+  app-bar: $indigo.base,
+  background: $indigo.base,
   cards: #141414,
   dividers: rgba(#fff, .12),
   text: {
@@ -224,7 +240,7 @@ $material-dark := {
     hover: $grey.darken-2
   },
 
-  bg-color: #303030
+  bg-color: $indigo.base
   fg-color: #fff
   text-color: #fff
   primary-text-percent: 1
@@ -265,11 +281,11 @@ $material-right-padding := 16px
 // Grid
 // ============================================================
 $grid-breakpoints := {
-  xs: 0
-  sm: 600px
+  xs: 520px
+  sm: 780px
   md: 1024px
-  lg: (1440px - 16px) // Desktop gets a 16dp blueuction
-  xl: (1920px - 16px) // https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
+  lg: (1240px - 16px) // Desktop gets a 16dp blueuction
+  xl: (1240px - 16px) // https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
 }
 
 $grid-gutter = 8px
@@ -350,12 +366,12 @@ $font-weights := {
 // ============================================================
 $heading-color := $theme.secondary
 $headings := {
-  h1: { size: 65px, weight: 300, line-height: 1, letter-spacing: 0em },
-  h2: { size: 56px, weight: 400, line-height: 1.35, letter-spacing: -.02em },
-  h3: { size: 45px, weight: 400, line-height: 48px, letter-spacing: normal },
-  h4: { size: 34px, weight: 400, line-height: 40px, letter-spacing: normal },
-  h5: { size: 24px, weight: 400, line-height: 32px, letter-spacing: normal },
-  h6: { size: 20px, weight: 500, line-height: 1, letter-spacing: .02em },
+  h1: { size: 55px, weight: 300, line-height: 1, letter-spacing: 0em },
+  h2: { size: 46px, weight: 400, line-height: 1.35, letter-spacing: -.02em },
+  h3: { size: 35px, weight: 400, line-height: 48px, letter-spacing: normal },
+  h4: { size: 24px, weight: 400, line-height: 40px, letter-spacing: normal },
+  h5: { size: 20px, weight: 400, line-height: 32px, letter-spacing: normal },
+  h6: { size: 18px, weight: 500, line-height: 1, letter-spacing: .02em },
   subheading: { size: 16px, weight: 400 },
   body-2: { size: 19px, weight: 500 },
   body-1: { size: 19px, weight: 400 },
@@ -539,7 +555,7 @@ $time-picker-number-font-size := 16px
 $time-picker-number-margin := 10px
 
 // Toolbar
-$toolbar-height := 64px
+$toolbar-height := 70px
 $toolbar-extension-height := 72px
 $toolbar-mobile-portrait-height := 56px
 $toolbar-mobile-landscape-height := 48px
@@ -646,8 +662,6 @@ $ripple-animation-visible-opacity := .15
 // Custom code for this App
 
 .application
-  background-color: $app_color.blue !important
-  color: $app_color.black !important
   strong
     font-family: siilaksansblack
   img
@@ -656,7 +670,7 @@ $ripple-animation-visible-opacity := .15
   .nav
     .active
       a
-        color: $app_color.blue
+        color: $app_color.white
     a
       text-decoration none
       font-family: 'siilakBlack'
@@ -666,7 +680,6 @@ $ripple-animation-visible-opacity := .15
       text-transform uppercase
 
   .container
-    padding: 0
     a
       color: $app_color.white
       text-decoration none
@@ -691,7 +704,7 @@ $ripple-animation-visible-opacity := .15
 .navs
   .nav
     .nav__item
-      font-size 28px
+      font-size 22px
       list-style none
 
 .app-cover
@@ -699,6 +712,49 @@ $ripple-animation-visible-opacity := .15
 
 .card
   &.theme--dark
-    color #ffffff
+    color: #ffffff
     h1, h2, h3 
-      color #ffffff
+      color: #ffffff
+.flex
+  overflow hidden
+
+.app-cover
+  position: absolute
+
+.card
+  &.theme--dark
+    color: #ffffff
+    h1, h2, h3 
+      color: #ffffff
+  overflow hidden
+
+.navs
+  .nav
+    .nav__item
+      font-size 22px
+      list-style none
+
+.app-cover
+  position: absolute
+
+.card
+  &.theme--dark
+    color: #ffffff
+    h1, h2, h3 
+      color: #ffffff
+.flex
+  overflow hidden
+
+.app-cover
+  position: absolute
+
+.card
+  &.theme--dark
+    color: #ffffff
+    h1, h2, h3 
+      color: #ffffff
+
+table
+  border: 0
+  td
+    border: 0

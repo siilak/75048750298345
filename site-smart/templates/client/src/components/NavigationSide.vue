@@ -1,9 +1,9 @@
 <template>
-  <div class="nav">
+  <v-navigation-drawer permanent light>
     <router-link active-class="active" :to="nav.url" :key="nav.name" v-for="nav in navs">
       <a :href="nav.httpUrl">{{ nav.name }}</a>
     </router-link>
-  </div>
+  </v-navigation-drawer>
 </template>
 
 <script>

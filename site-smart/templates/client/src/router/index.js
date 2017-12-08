@@ -7,7 +7,6 @@ import Home from '@/components/Home'
 import Default from '@/components/Default'
 import Split from '@/components/Split'
 import Portfolio from '@/components/Portfolio'
-import Social from '@/components/Social'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -29,16 +28,6 @@ var router = new Router({
       name: 'split',
       path: '/mis-on-smart/*',
       component: Split
-    },
-    {
-      name: 'split',
-      path: '/dooh',
-      component: Split
-    },
-    {
-      name: 'social',
-      path: '/dooh/*',
-      component: Social
     },
     {
       name: 'portfolio',

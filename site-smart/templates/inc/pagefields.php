@@ -202,6 +202,7 @@ class PageFields {
   private function getRepeaters($p, $fld) {
     $fldName = $fld->name;
     $fldVal = $p->get($fldName);
+    // TODO: Field id for Vue
 
     $flds = [];
     $repeaterIndex = 0;
@@ -249,12 +250,12 @@ class PageFields {
       // check if srcset is available
       $srcSetAvailable = $imgConf['srcset'] && $imgConf['bp_type'] === 'width';
 
-      // add origin
+      // Original image
       foreach ($imgConf['fields'] as $imageField) {
         $images[$fldName][$i]['origin'][$imageField] = $image[$imageField];
       }
 
-      // add thumbnail
+      // Thumbnail image
       if (count($imgConf['thumb'])) {
         $thumb = $image->size($imgConf['thumb'][0], $imgConf['thumb'][1], $imgConf['thumb'][2]);
         $images[$fldName][$i]['thumb']['httpUrl'] = $thumb->httpUrl;

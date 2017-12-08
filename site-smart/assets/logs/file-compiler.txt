@@ -18,3 +18,20 @@
 2017-12-07 23:20:33	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/nav.php
 2017-12-07 23:43:37	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
 2017-12-08 00:36:38	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 04:22:48	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 04:28:25	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 05:21:59	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Maintenance/Copy new version of source file to target file: /site-smart/templates/home.php => /site-smart/assets/cache/FileCompiler/site-smart/templates/home.php
+2017-12-08 05:21:59	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Maintenance/Remove target file: /site-smart/assets/cache/FileCompiler/site-smart/templates/inc/ajax-request.php
+2017-12-08 05:21:59	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Maintenance/Copy new version of source file to target file: /site-smart/templates/pages.php => /site-smart/assets/cache/FileCompiler/site-smart/templates/pages.php
+2017-12-08 05:21:59	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/pages.php
+2017-12-08 05:54:16	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 05:55:59	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 05:56:06	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:03:49	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:04:26	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:04:35	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:22:29	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:27:47	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:28:28	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:29:19	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-08 06:34:25	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
