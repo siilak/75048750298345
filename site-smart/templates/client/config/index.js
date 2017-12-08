@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../../home.php'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/site-smart/templates/client/dist/',
+    assetsPublicPath: '/site-app/templates/client/dist/',
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -23,14 +23,13 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8090,
+    port: 8010,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       // proxy all requests starting with /api to jsonplaceholder
       '/api': {
-        //target: 'http://www.processvue.localdev',
         target: 'http://smart.dev',
         changeOrigin: true
       }

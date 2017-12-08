@@ -13,6 +13,9 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
+    loaders: [
+      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
+    ],
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
   // cheap-module-eval-source-map is faster for development

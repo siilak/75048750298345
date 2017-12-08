@@ -86,7 +86,7 @@ class Header {
     'bin'   => 'application/octet-stream',
     'class' => 'application/octet-stream',
     'css'   => 'text/css',
-    'csv'   => 'application/vnd.ms-excel',
+    'csv' => 'application/vnd.ms-excel',
     'doc'   => 'application/msword',
     'dll'   => 'application/octet-stream',
     'dvi'   => 'application/x-dvi',

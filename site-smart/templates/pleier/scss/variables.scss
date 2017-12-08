@@ -1,0 +1,75 @@
+// ==========================================================================
+// Plyr variables
+// https://github.com/selz/pleier
+// https://robots.thoughtbot.com/sass-default
+// ==========================================================================
+
+// Settings
+$pleier-border-box:                       true !default;
+$pleier-touch-action:                     true !default;
+$pleier-sr-only-important:                true !default;
+
+// Colors
+$pleier-color-main:                       #db0000 !default;
+
+// Font sizes
+$pleier-font-family:                      'San Francisco', -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', Avenir, 'Avenir Next', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+$pleier-font-size-small:                  14px !default;
+$pleier-font-size-big:                    24px !default;
+$pleier-font-size-base:                   16px !default;
+$font:                                  'Roboto';
+
+// Captions
+$pleier-captions-bg:                      transparentize(#000, .3) !default;
+$pleier-captions-color:                   #fff !default;
+$pleier-font-size-captions-base:          $pleier-font-size-base !default;
+$pleier-font-size-captions-medium:        ceil($pleier-font-size-base * 1.5) !default;
+$pleier-font-size-captions-large:         ($pleier-font-size-base * 2) !default;
+
+// Controls
+$pleier-control-icon-size:                18px !default;
+$pleier-control-spacing:                  10px !default;
+$pleier-control-padding:                  ($pleier-control-spacing * .7) !default;
+$pleier-video-controls-bg:                #000 !default;
+$pleier-video-control-color:              #fff !default;
+$pleier-video-player-bg:                  #db0000 !default;
+$pleier-video-control-color-hover:        #fff !default;
+$pleier-video-control-bg-hover:           $pleier-color-main !default;
+$pleier-audio-controls-bg:                #151515 !default;
+$pleier-audio-controls-border:            1px solid #dbe3e8 !default;
+$pleier-audio-control-color:              $pleier-color-main !default;
+$pleier-audio-control-color-hover:        #fff !default;
+$pleier-audio-control-bg-hover:           $pleier-color-main;
+
+// Tooltips
+$pleier-tooltip-bg:                       transparentize(#000, .3) !default;
+$pleier-tooltip-color:                    #fff !default;
+$pleier-tooltip-padding:                  ($pleier-control-spacing / 2) !default;
+$pleier-tooltip-arrow-size:               4px !default;
+$pleier-tooltip-radius:                   3px !default;
+
+// Progress
+$pleier-progress-loading-size:            25px !default;
+$pleier-progress-loading-bg:              transparentize(#000, .85) !default;
+$pleier-video-progress-bg:                transparentize(#fff, .75) !default;
+$pleier-video-progress-buffered-bg:       $pleier-video-progress-bg !default;
+$pleier-audio-progress-bg:                transparentize(#C6D6DB, .33) !default;
+$pleier-audio-progress-buffered-bg:       $pleier-audio-progress-bg !default;
+
+// Range sliders
+$pleier-range-track-height:               8px !default;
+$pleier-range-thumb-height:               floor($pleier-range-track-height * 2) !default;
+$pleier-range-thumb-width:                floor($pleier-range-track-height * 2) !default;
+$pleier-range-thumb-bg:                   #fff !default;
+$pleier-range-thumb-border:               2px solid transparent !default;
+$pleier-range-thumb-shadow:               0 1px 1px transparentize($pleier-video-controls-bg, .85), 0 0 0 1px transparentize(#000, .85) !default;
+$pleier-range-thumb-active-border-color:  #fff !default;
+$pleier-range-thumb-active-bg:            $pleier-video-control-bg-hover !default;
+$pleier-range-thumb-active-scale:         1.25 !default;
+$pleier-video-range-track-bg:             $pleier-video-progress-buffered-bg !default;
+$pleier-audio-range-track-bg:             $pleier-audio-progress-buffered-bg !default;
+$pleier-range-selected-bg:                $pleier-color-main !default;
+
+// Breakpoints
+$pleier-bp-screen-sm:                     480px !default;
+$pleier-bp-screen-md:                     768px !default;

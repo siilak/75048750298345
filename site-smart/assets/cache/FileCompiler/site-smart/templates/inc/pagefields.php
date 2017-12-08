@@ -1,131 +1,118 @@
 <?php
 
 class PageFields {
+	/*
+	 * PageFields parameters and defaults
+	 *
+	 * */
+	private $page = NULL;
+	private $conf = [
+		// core fields to include globally
+		'fld_core_included'           => [
+			'parentID',
+			'id',
+			'name',
+			'url',
+			'httpUrl',
+			'template' ],
+		// further core fields to include on a specific template or pageID
+		'fld_core_included_overrides' => [],
+		// include all fields globally?
+		'fld_include_all'             => TRUE,
+		// fields to exclude globally
+		// works only if fld_include_all is true
+		'fld_excluded'                => [],
+		// further fields to exclude on a specific template or pageID
+		// works only if fld_include_all is true
+		'fld_excluded_overrides'      => [],
+		// fields to include globally
+		// works only if fld_include_all is false
+		'fld_included'                => [],
+		// further fields to include on a specific template or pageID
+		// works only if fld_include_all is false
+		'fld_included_overrides'      => [],
+		// global image settings
+		// https://processwire.com/api/fieldtypes/images/
+		'image_fields'                => [
+			'resize'     => [ 1200, 900, [ 'quality' => 90 ] ],
+			'full'       => [ 1200, 0, [ 'quality' => 90 ] ],
+			'large'       => [ 960, 0, [ 'quality' => 90 ] ],
+			'thumb'      => [ 480, 480, [ 'quality' => 90, 'cropping' => 'c' ] ],
+			'mobile'     => [ 780, 780, [ 'quality' => 90, 'cropping' => 'c' ] ],
+			'fields'     => [ 'description', 'httpUrl', 'width', 'height' ],
+			'srcset'     => TRUE,
+			'bp_type'    => 'width',
+			'bp_list'    => TRUE,
+			'bp_exclude' => [ 'description', 'width', 'height' ],
+			'bp'         => [ 480, 780, 1200 ], ],
+		// override global image settings
+		// for each field
+		'img_fld_overrides'           => [
+			// example for an image field named 'banners'
+			// 'banners' => [ 'fields' => ['httpUrl'], 'bp_list' => false ]
+		],
+		// get queries
+		'queries'                     => [],
+		// allow nested children?
+		'children'                    => TRUE ];
+	/*
+	 * constructor
+	 *
+	 * */
+	public function __construct( $page, array $config = [] ) {
+		// set page (required)
+		$this->page = $page;
+		// set configuration options (optional)
+		if ( is_array( $config ) ) {
+			foreach ( $this->conf as $key => $property ) {
+				// allow only parameters that are already defined
+				// on $conf and have same typecast
+				if ( array_key_exists( $key, $config ) && gettype( $this->conf[ $key ] ) === gettype( $config[ $key ] ) ) {
+					$this->conf[ $key ] = $config[ $key ];
+				}
+			}
+		}
+	}
+	/*
+	 * allow getting private conf keys
+	 *
+	 * */
+	public function __get( $key ) {
+		return $this->conf;
+	}
+	/*
+	 * check if this field should override the globals
+	 *
+	 * */
+	private function isFieldOverride( $p, $fldsOverrideList = NULL, $fldName = NULL ) {
+		if ( ! empty( $fldsOverrideList[ $fldName ] ) ) {
+			$override = $fldsOverrideList[ $fldName ];
+		} else {
+			return FALSE;
+		}
+		$fldOverrideKey = $override[0];
+		$fldOverrideValue = $override[1];
+		switch ( $fldOverrideKey ) {
+			case 'template':
+				return $p->template->name === $fldOverrideValue;
+			case 'id':
+				return $p->id === $fldOverrideValue;
+			case 'parents':
+				$parents = explode( '|', $p->parents );
 
-  /*
-   * PageFields parameters and defaults
-   *
-   * */
-  private $page = null;
-  private $conf = [
-    // core fields to include globally
-    'fld_core_included' => ['parentID', 'id', 'name', 'url', 'httpUrl', 'template'],
-
-    // further core fields to include on a specific template or pageID
-    'fld_core_included_overrides' => [],
-
-    // include all fields globally?
-    'fld_include_all' => true,
-
-    // fields to exclude globally
-    // works only if fld_include_all is true
-    'fld_excluded' => [],
-
-    // further fields to exclude on a specific template or pageID
-    // works only if fld_include_all is true
-    'fld_excluded_overrides' => [],
-
-    // fields to include globally
-    // works only if fld_include_all is false
-    'fld_included' => [],
-
-    // further fields to include on a specific template or pageID
-    // works only if fld_include_all is false
-    'fld_included_overrides' => [],
-
-    // global image settings
-    // https://processwire.com/api/fieldtypes/images/
-    'image_fields' => [
-      'resize'  => [1200, 900, ['quality' => 90, 'cropping' => 'c']],
-      'thumb'   => [ 400, 400, ['quality' => 90, 'cropping' => 'c']],
-      'fields'  => ['description', 'httpUrl', 'width', 'height'],
-      'srcset'  => true,
-      'bp_type' => 'width',
-      'bp_list' => true,
-      'bp_exclude' => ['description', 'width', 'height'],
-      'bp'      => [400, 800, 1200],
-    ],
-
-    // override global image settings
-    // for each field
-    'img_fld_overrides' => [
-      // example for an image field named 'banners'
-      // 'banners' => [ 'fields' => ['httpUrl'], 'bp_list' => false ]
-    ],
-
-    // get queries
-    'queries' => [],
-
-    // allow nested children?
-    'children' => true
-  ];
-
-  /*
-   * constructor
-   *
-   * */
-  public function __construct($page, array $config = []) {
-    // set page (required)
-    $this->page = $page;
-
-    // set configuration options (optional)
-    if (is_array($config)) {
-        foreach ($this->conf as $key => $property) {
-          // allow only parameters that are already defined
-          // on $conf and have same typecast
-          if (
-            array_key_exists($key, $config) &&
-            gettype($this->conf[$key]) === gettype($config[$key])
-          ) {
-            $this->conf[$key] = $config[$key];
-          }
-        }
-    }
-  }
-
-  /*
-   * allow getting private conf keys
-   *
-   * */
-  public function __get($key) {
-    return $this->conf;
-  }
-
-  /*
-   * check if this field should override the globals
-   *
-   * */
-  private function isFieldOverride($p, $fldsOverrideList = null, $fldName = null) {
-    if (!empty($fldsOverrideList[$fldName])) {
-      $override = $fldsOverrideList[$fldName];
-    } else {
-      return false;
-    }
-
-    $fldOverrideKey = $override[0];
-    $fldOverrideValue = $override[1];
-
-    switch($fldOverrideKey) {
-      case 'template':
-        return $p->template->name === $fldOverrideValue;
-      case 'id':
-        return $p->id === $fldOverrideValue;
-      case 'parents':
-        $parents = explode('|', $p->parents);
-        return in_array($fldOverrideValue, $parents);
-      default:
-        return false;
-    }
-  }
-
-  /*
-   * check whether is included/excluded field
-   *
-   * */
-  private function isNotAllowedField($p, $fldName = null) {
-    if ($this->conf['fld_include_all']) {
-      $fldExcluded = in_array($fldName, $this->conf['fld_excluded']);
-      $fldOverride = $this->isFieldOverride($p, $this->conf['fld_excluded_overrides'], $fldName);
+				return in_array( $fldOverrideValue, $parents );
+			default:
+				return FALSE;
+		}
+	}
+	/*
+	 * check whether is included/excluded field
+	 *
+	 * */
+	private function isNotAllowedField( $p, $fldName = NULL ) {
+		if ( $this->conf['fld_include_all'] ) {
+			$fldExcluded = in_array( $fldName, $this->conf['fld_excluded'] );
+			$fldOverride = $this->isFieldOverride( $p, $this->conf['fld_excluded_overrides'], $fldName );
 
       return $fldOverride || $fldExcluded;
     } else {
@@ -274,6 +261,33 @@ class PageFields {
         $images[$fldName][$i]['thumb']['width'] = $thumb->width;
         $images[$fldName][$i]['thumb']['height'] = $thumb->height;
         $images[$fldName][$i]['thumb']['orientation'] = $thumb->orientation;
+      }
+
+      // Mobile image
+      if (count($imgConf['mobile'])) {
+        $mobile = $image->size($imgConf['mobile'][0], $imgConf['mobile'][1], $imgConf['mobile'][2]);
+        $images[$fldName][$i]['mobile']['httpUrl'] = $mobile->httpUrl;
+        $images[$fldName][$i]['mobile']['width'] = $mobile->width;
+        $images[$fldName][$i]['mobile']['height'] = $mobile->height;
+        $images[$fldName][$i]['mobile']['orientation'] = $mobile->orientation;
+      }
+
+      // Large image
+      if (count($imgConf['large'])) {
+        $large = $image->size($imgConf['large'][0], $imgConf['large'][1], $imgConf['large'][2]);
+        $images[$fldName][$i]['large']['httpUrl'] = $large->httpUrl;
+        $images[$fldName][$i]['large']['width'] = $large->width;
+        $images[$fldName][$i]['large']['height'] = $large->height;
+        $images[$fldName][$i]['large']['orientation'] = $large->orientation;
+      }
+
+      // Full image
+      if (count($imgConf['full'])) {
+        $full = $image->size($imgConf['full'][0], $imgConf['full'][1], $imgConf['full'][2]);
+        $images[$fldName][$i]['full']['httpUrl'] = $full->httpUrl;
+        $images[$fldName][$i]['full']['width'] = $full->width;
+        $images[$fldName][$i]['full']['height'] = $full->height;
+        $images[$fldName][$i]['full']['orientation'] = $full->orientation;
       }
 
       // get image based on resize options

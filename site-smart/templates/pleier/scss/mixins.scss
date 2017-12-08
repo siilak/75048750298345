@@ -1,0 +1,29 @@
+// ==========================================================================
+// Plyr mixins
+// https://github.com/selz/pleier
+// ==========================================================================
+
+// <input type="range"> styling
+@mixin pleier-range-track() {
+    height: $pleier-range-track-height;
+    background: transparent;
+    border: 0;
+    border-radius: ($pleier-range-track-height / 2);
+    user-select: none;
+}
+@mixin pleier-range-thumb() {
+    position: relative;
+    height: $pleier-range-thumb-height;
+    width: $pleier-range-thumb-width;
+    background: $pleier-range-thumb-bg;
+    border: $pleier-range-thumb-border;
+    border-radius: 100%;
+    transition: background .2s ease, border .2s ease, transform .2s ease;
+    box-shadow: $pleier-range-thumb-shadow;
+    box-sizing: border-box;
+}
+@mixin pleier-range-thumb-active() {
+    background: $pleier-range-thumb-active-bg;
+    border-color: $pleier-range-thumb-active-border-color;
+    transform: scale($pleier-range-thumb-active-scale);
+}

@@ -13,4 +13,3 @@ export const title = titleEl.slice(0, titleEl.indexOf('|')).trim()
 export const websiteName = titleEl.slice(titleEl.indexOf('|') + 1, titleEl.length).trim()
 export const titleFallback = `${title} | ${websiteName}`
 export const description = $html.querySelector('meta[name="description"]').content
-export const body = $html.querySelector('meta[name="description"]').content

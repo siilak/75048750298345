@@ -3,10 +3,11 @@ import Router from 'vue-router'
 import Meta from 'vue-meta'
 import { app } from '@/app'
 
-import PwHome from '@/components/PwHome'
-import PwManage from '@/components/PwManage'
-import PwDefault from '@/components/PwDefault'
-import UserRegister from '@/components/user-register'
+import Home from '@/components/Home'
+import Default from '@/components/Default'
+import Split from '@/components/Split'
+import Portfolio from '@/components/Portfolio'
+import Social from '@/components/Social'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -17,22 +18,32 @@ var router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: PwHome
-    },
-    {
-      path: '/manage',
-      name: 'manage',
-      component: PwManage
-    },
-    {
-      path: '/register',
-      name: 'user-register',
-      component: UserRegister
+      component: Home
     },
     {
       name: 'default',
       path: '*',
-      component: PwDefault
+      component: Default
+    },
+    {
+      name: 'split',
+      path: '/mis-on-smart/*',
+      component: Split
+    },
+    {
+      name: 'split',
+      path: '/dooh',
+      component: Split
+    },
+    {
+      name: 'social',
+      path: '/dooh/*',
+      component: Social
+    },
+    {
+      name: 'portfolio',
+      path: '/portfolio/*',
+      component: Portfolio
     }
   ]
 })
@@ -44,12 +55,4 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-router.afterEach((to, from) => {
-  if (app) {
-    // console.log('afterEach')
-    app.$store.dispatch('loading', false)
-  }
-})
-
 export default router
-

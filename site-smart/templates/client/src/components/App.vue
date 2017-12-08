@@ -1,71 +1,125 @@
 <template>
   <div id="app" @click="linkHandler" v-if="loadedData">
-    <NavigationMain></NavigationMain>
-    <Loading></Loading>
-    <router-view></router-view>
+    <v-app id="example-2" toolbar>
+      <v-navigation-drawer temporary v-model="drawer" :mini-variant.sync="mini" light overflow absolute>
+        <v-chip>
+          <v-avatar>
+            <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="trevor">
+          </v-avatar>
+          Marko Siilak
+        </v-chip>
+      </v-navigation-drawer>
+      <v-toolbar fixed class="black" dark>
+        <v-toolbar-side-icon @click.stop="drawer = !drawer">
+          <v-logo>
+            <img src="./../assets/logo.svg">
+          </v-logo>
+        </v-toolbar-side-icon>
+        <v-toolbar-title>{{ pageData.title }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="margin-righ hidden-sm-and-down">
+          <Navigation></Navigation>
+        </v-toolbar-items>
+      </v-toolbar>
+      <main>
+        <v-container fluid>
+          <loader></loader>
+          <router-view></router-view>
+          <!--v-router-->
+        </v-container>
+      </main>
+    </v-app>
   </div>
 </template>
 
 <script>
+import * as config from '@/config'
+import router from '@/router'
+import { mapGetters } from 'vuex'
+import Navigation from '@/components/Navigation'
+import Loader from '@/components/Loader'
+import Footer from '@/components/Footer'
 
-  // App components
-  import * as config from '@/config'
-  import router from '@/router'
-  import NavigationMain from '@/components/navigation/NavigationMain'
-  import Loading from '@/components/loading/Loading'
-  
-  // App export
-  export default {
-    name: 'App',
-    components: {
-      NavigationMain,
-      Loading
+export default {
+  name: 'App',
+  components: {
+    Navigation,
+    Footer,
+    Loader
+  },
+  data() {
+    return {
+      drawer: null,
+      mini: false,
+      right: null
+    }
+  },
+  computed: {
+    loadedData() {
+      return !this.loading
     },
-    computed: {
-      loadedData() {
-        return !this.loading
+    ...mapGetters([
+      'pageData'
+    ])
+  },
+  methods: {
+    fetchData() {
+      this.$store.dispatch('setNavData', '?listing=1&parent_included=1').then(() => {
+        this.loading = false
+      })
+    },
+    checkDomain(url) {
+      if (url.indexOf('//') === 0) {
+        url = window.location.protocol + url
       }
+      return url.toLowerCase().replace(/([a-z])?:\/\//, '$1').split('/')[0]
     },
-    methods: {
-      fetchData() {
-        this.$store.dispatch('setNavData', '?listing=1&parent_included=1').then(() => {
-          this.loading = false
-        })
-      },
-      checkDomain(url) {
-        if (url.indexOf('//') === 0) {
-          url = window.location.protocol + url
-        }
-        return url.toLowerCase().replace(/([a-z])?:\/\//, '$1').split('/')[0]
-      },
-      linkIsExternal(url) {
-        return ((url.indexOf(':') > -1 || url.indexOf('//') > -1) && this.checkDomain(window.location.href) !== this.checkDomain(url))
-      },
-      linkHandler(e) {
-        // let $typ = e.target.closest('.typography')
-        let $link = e.target
-        if (!$link) return
-        let linkHref = $link.getAttribute('href')
-        // allow default to occur if it is external or it doesn't have an href.
-        if (!linkHref || this.linkIsExternal(linkHref)) return
+    linkIsExternal(url) {
+      return ((url.indexOf(':') > -1 || url.indexOf('//') > -1) && this.checkDomain(window.location.href) !== this.checkDomain(url))
+    },
+    linkHandler(e) {
+      let $typ = e.target.closest('.typography')
+      let $link = e.target.closest('a')
+      if (!$typ || !$link) return
 
-        e.preventDefault()
-        router.push({ path: linkHref })
-      }
-    },
-    metaInfo: {
-      title: config.title,
+      let linkHref = $link.getAttribute('href')
+      if (this.linkIsExternal(linkHref)) return
+
+      e.preventDefault()
+      router.push({ path: linkHref })
+    }
+  },
+  metaInfo() {
+    return {
+      title: this.pageData.title || config.titleFallback,
       meta: [
         {
           vmid: 'description',
           name: 'description',
-          content: config.description
+          content: this.pageData.summary || config.description
         }
       ],
-      titleTemplate: `%s | ${config.websiteName}`
-    },
-    created() {
-      this.fetchData()
+      bodyAttrs: {
+        class: `-${this.pageData.template}`
+      }
     }
+  },
+  created() {
+    this.fetchData()
   }
+}
 </script>
+
+<style lang="scss">
+  html {
+    overflow-y: scroll;
+  }
+
+  .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+</style>
