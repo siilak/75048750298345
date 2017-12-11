@@ -35,3 +35,6 @@
 2017-12-08 06:28:28	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
 2017-12-08 06:29:19	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/inc/pagefields.php
 2017-12-08 06:34:25	guest	http://smart.dev/api/pages/mis-on-smart/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-10 16:19:41	guest	http://smart.dev/api/pages/http404/?children=1	Compiled file: /site-smart/templates/pages.php
+2017-12-10 16:19:41	guest	http://smart.dev/api/pages/http404/?children=1	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-10 16:20:22	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/nav.php
