@@ -1,0 +1,1 @@
+2017-12-11 09:53:19	admin	http://smart.dev/admin/module/download/	Unable to remove: /Volumes/Working/Tele2/tele2-web/site-smart/assets/cache/WireTempDir/.ProcessModuleInstall/1/

@@ -10,7 +10,7 @@ ProcessVue is a Tele2 boilerplate for getting started with ProcessWire 3.0 as a 
 3. Update `SITE-NAME/config.php` with your local machine settings, depends on your MAMP or other. Example domain name: smart.dev
 4. Update `SITE-NAME/templates/client/config/index.js` proxyTable with the right domain name
 4. Install npm packages from `SITE-NAME/templates/client` by running `npm i` 
-5. Run webpack dev server by running `npm run dev`, (http://localhost:8010) or compile all assets with `npm run build` and then run with a http://smart.dev
+5. Run webpack dev server by running `site-smart/templates/client/ && npm run dev`, (http://localhost:8010) or compile all assets with `npm run build` and then run with a http://smart.dev
 
 ## Admin Login
 

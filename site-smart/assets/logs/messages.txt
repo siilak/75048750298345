@@ -10,3 +10,6 @@
 2017-12-11 06:22:12	guest	http://smart.dev/api/pages/hinnad/?children=1	Deleted 0 backup (CronjobDatabaseBackup)
 2017-12-11 09:21:36	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Saved db-backup - PATH[/Volumes/Working/Tele2/tele2-web/site-smart/assets/backups/database/wirevue-1.sql] (CronjobDatabaseBackup)
 2017-12-11 09:21:36	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Deleted 0 backup (CronjobDatabaseBackup)
+2017-12-11 10:00:53	admin	http://smart.dev/admin/page/sort/	Updated sort for 4 pages (ProcessPageSort)
+2017-12-11 10:58:25	admin	http://smart.dev/admin/page/	Saved db-backup - PATH[/Volumes/Working/Tele2/tele2-web/site-smart/assets/backups/database/wirevue-3.sql] (CronjobDatabaseBackup)
+2017-12-11 10:58:25	admin	http://smart.dev/admin/page/	Deleted 0 backup (CronjobDatabaseBackup)

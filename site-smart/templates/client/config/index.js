@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../../home.php'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/site-app/templates/client/dist/',
+    assetsPublicPath: '/site-smart/templates/client/dist/',
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
