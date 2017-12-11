@@ -1,7 +1,7 @@
 <template>
   <div class="default typography" v-if="loadedData">
 
-    <h1 class="light">{{ pageData.title }}</h1>
+    <h1 class="light">{{ pageData.title.data }}</h1>
 
   </div>
 </template>

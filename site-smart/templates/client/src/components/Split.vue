@@ -4,10 +4,10 @@
     <v-layout row>
   
       <v-flex xs12 sm7>
-        <h1 class="light">{{ pageData.title }}</h1>
+        <h1 class="light">{{ pageData.title.data }}</h1>
         <v-card light>
           <v-card-text>
-            <div class="txt" v-html="pageData.content"></div>
+            <div class="txt" v-html="pageData.content.data"></div>
   
             <div class="faqs" v-if="hasFAQ">
               <div class="faq">

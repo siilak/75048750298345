@@ -10,3 +10,5 @@
 2017-12-10 17:13:50	guest	http://smart.dev/admin/login/	Error: Failed login for 'admin' - Unknown user: admin
 2017-12-10 17:14:23	marko	http://smart.dev/admin/login/	Successful login for 'marko'
 2017-12-11 11:16:11	admin	http://smart.dev/admin/login/	Successful login for 'admin'
+2017-12-11 14:18:07	admin	http://smart.dev/admin/login/	Successful login for 'admin'
+2017-12-11 14:21:16	admin	http://smart.dev/admin/login/	Successful login for 'admin'

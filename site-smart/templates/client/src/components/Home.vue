@@ -1,19 +1,21 @@
 <template>
-  <div class="home typography" v-if="loadedData">
-    <v-layout row>
-      <v-flex xs12 sm6>
-        <h1>{{ pageData.title }}</h1>
-      </v-flex>
-      <v-flex xs12 sm6>
-        <div class="txt" v-html="pageData.content"></div>
-      </v-flex>
-    </v-layout>
-  </div>
+    <div class="home typography" v-if="loadedData">
+        <v-layout row>
+
+            <v-flex xs12 sm6 v-if="hasTitle">
+                <h1 class="light">{{ pageData.title.data }}</h1>
+            </v-flex>
+
+            <v-flex xs12 sm6 v-if="hasContent">
+                <div class="txt" v-html="pageData.content.data"></div>
+            </v-flex>
+        </v-layout>
+    </div>
 </template>
 
 <script>
   import * as config from '@/config'
-  import { mapGetters } from 'vuex'
+  import {mapGetters} from 'vuex'
 
   export default {
     name: 'Home',
@@ -24,6 +26,12 @@
       ]),
       loadedData() {
         return !this.loading && this.$route.path === this.pageData.url
+      },
+      hasTitle() {
+        return this.pageData.title
+      },
+      hasContent() {
+        return this.pageData.content && this.pageData.content.length
       }
     },
     watch: {

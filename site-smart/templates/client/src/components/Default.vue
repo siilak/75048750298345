@@ -5,22 +5,24 @@
       <v-flex xs12 sm3>
 
         <v-layout row v-if="hasGallery">
-          <v-flex xs6 sm4 v-for="img in pageData.gallery">
+          <v-flex xs6 sm4 v-for="img in pageData.gallery.data">
             <img :src="img.thumb.httpUrl" alt="">
           </v-flex>
         </v-layout>
 
         <div v-for="page in pageData.children" v-if="hasChildren">
           <router-link class="logo" :to="page.url">
-            {{ page.title }}
+            {{ page.title.data }}
           </router-link>
         </div>
       
       </v-flex>
       
       <v-flex xs12 sm9>
-        <h1 class="light">{{ pageData.title }}</h1>
-        <div class="txt" v-html="pageData.content"></div>
+        <h1 class="light">{{ pageData.title.data }}</h1>
+        <div v-if="hasContent">
+          <div class="txt" v-html="pageData.content.data"></div>
+        </div>
       </v-flex>
       
     </v-layout>
@@ -60,6 +62,9 @@
       ]),
       loadedData() {
         return !this.loading && this.$route.path === this.pageData.url
+      },
+      hasContent() {
+        return this.pageData.content
       },
       hasGallery() {
         return this.pageData.gallery && this.pageData.gallery.length

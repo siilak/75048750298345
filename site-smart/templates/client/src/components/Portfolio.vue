@@ -1,6 +1,6 @@
 <template>
   <div class="default typography" v-if="loadedData">
-      <h1 v-if="show" transition="fadeLeft" class="light">{{ pageData.title }}</h1>
+      <h1 v-if="show" transition="fadeLeft" class="light">{{ pageData.title.data }}</h1>
 
     <v-layout row v-if="hasGallery">
       <v-flex m12 v-for="img in pageData.gallery">
@@ -18,7 +18,7 @@
 
       <div v-for="page in pageData.children" v-if="hasChildren">
         <router-link class="logo" :to="page.url">
-          {{ page.title }}
+          {{ page.title.data }}
           {{ page.image }}
         </router-link>
       </div>
