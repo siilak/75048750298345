@@ -8,3 +8,6 @@ yarn-debug.log
 npm-debug.log
 .vscode
 .idea
+**/assets/cache
+**/assets/logs
+**/assets/sessions

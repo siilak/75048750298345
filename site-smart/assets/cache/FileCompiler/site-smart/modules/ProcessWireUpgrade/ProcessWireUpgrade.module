@@ -11,7 +11,7 @@
  *
  */
 
-class ProcessWireUpgrade extends \ProcessWire\Process {
+class ProcessWireUpgrade extends Process {
 
 	/**
 	 * Return information about this module (required)
@@ -101,11 +101,11 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 	 *
 	 */
 	public function init() {
-		if($this->config->demo) throw new \ProcessWire\WireException("This module cannot be used in demo mode"); 
-		if(!$this->user->isSuperuser()) throw new \ProcessWire\WireException("This module requires superuser"); 
+		if($this->config->demo) throw new WireException("This module cannot be used in demo mode"); 
+		if(!$this->user->isSuperuser()) throw new WireException("This module requires superuser"); 
 		set_time_limit(3600); 
 		$this->checker = $this->modules->getInstall('ProcessWireUpgradeCheck'); 
-		if(!$this->checker) throw new \ProcessWire\WireException("Please go to Modules and click 'Check for new modules' - this will auto-update ProcessWireUpgrade."); 
+		if(!$this->checker) throw new WireException("Please go to Modules and click 'Check for new modules' - this will auto-update ProcessWireUpgrade."); 
 		parent::init();
 	}
 
@@ -225,8 +225,8 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 	 *
 	 */
 	public function executeRemove() {
-		if(\ProcessWire\wirermdir($this->cachePath, true)) $this->message("Removed $this->cachePath"); 
-		if(\ProcessWire\wirermdir($this->tempPath, true)) $this->message("Removed $this->tempPath"); 
+		if(wireRmdir($this->cachePath, true)) $this->message("Removed $this->cachePath"); 
+		if(wireRmdir($this->tempPath, true)) $this->message("Removed $this->tempPath"); 
 		$this->session->redirect("./"); 
 	}
 
@@ -246,9 +246,9 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 		}
 
 		$name = $this->input->get('branch'); 
-		if(empty($name)) throw new \ProcessWire\WireException("No branch selected"); 
+		if(empty($name)) throw new WireException("No branch selected"); 
 		$branch = $this->getBranch($name);
-		if(!count($branch)) throw new \ProcessWire\WireException("Unknown branch"); 
+		if(!count($branch)) throw new WireException("Unknown branch"); 
 		$this->setBranch($name); 
 		$result = version_compare($this->config->version, $branch['version']);
 
@@ -289,14 +289,14 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 	public function executeDownload() {
 
 		$branch = $this->getBranch();
-		if(empty($branch)) throw new \ProcessWire\WireException("No branch selected"); 
+		if(empty($branch)) throw new WireException("No branch selected"); 
 
-		\ProcessWire\wiremkdir($this->tempPath); 
-		$http = new \ProcessWire\WireHttp();
+		wireMkdir($this->tempPath); 
+		$http = new WireHttp();
 		$zipfile = $http->download($branch['zipURL'], $this->tempPath . "$branch[name].zip"); 
 
 		if(!$zipfile || !file_exists($zipfile) || !filesize($zipfile)) {
-			throw new \ProcessWire\WireException("Unable to download $branch[zipURL]"); 
+			throw new WireException("Unable to download $branch[zipURL]"); 
 		}
 
 		$this->message("Downloaded version $branch[version] (" . number_format(filesize($zipfile)) . " bytes)"); 
@@ -383,11 +383,11 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 
 		$error = '';
 		$branch = $this->getBranch();
-		if(empty($branch)) throw new \ProcessWire\WireException("No branch selected"); 
+		if(empty($branch)) throw new WireException("No branch selected"); 
 		$zipfile = $this->tempPath . "$branch[name].zip"; // site/assets/cache/ProcessWireUpgrade/branch-dev.zip
 
-		if(!file_exists($zipfile)) throw new \ProcessWire\WireException("Unable to locate ZIP: $zipfile"); 
-		$files = \ProcessWire\wireunzipfile($zipfile, $this->tempPath); 
+		if(!file_exists($zipfile)) throw new WireException("Unable to locate ZIP: $zipfile"); 
+		$files = wireUnzipFile($zipfile, $this->tempPath); 
 		if(!count($files)) $error = "No files were found in $zipfile";
 
 		$oldVersion = $this->config->version;
@@ -424,7 +424,7 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 				"Your file system is not writable, so we are installing files to $cacheUpgradeURL instead. " . 
 				"You will have to copy them manually to your web root."
 				); 
-			\ProcessWire\wiremkdir($cacheUpgradePath); 
+			wireMkdir($cacheUpgradePath); 
 			$wireNewPath = $cacheUpgradePath . 'wire/';
 			$htaccessNewFile = $cacheUpgradePath . 'htaccess.txt';
 			$indexNewFile = $cacheUpgradePath . 'index.php';
@@ -445,10 +445,10 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 			$this->renameNow($rootTempPath . "index.php", $indexNewFile); // /temp/path/index.php => /index-2.5.0.php
 			$this->renameNow($rootTempPath . "htaccess.txt", $htaccessNewFile); // /temp/path/htaccess.txt => /htaccess-2.5.0.txt
 			// remove /temp/path/ as no longer needed since we've taken everything we need out of it above
-			\ProcessWire\wirermdir($this->tempPath, true); 
+			wireRmdir($this->tempPath, true); 
 		}
 
-		if($error) throw new \ProcessWire\WireException($error); 
+		if($error) throw new WireException($error); 
 
 		$out = 	
 			"<h2>Upgrade files copied</h2>" . 
@@ -571,9 +571,9 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 	 */
 	public function executeInstall() {
 
-		if(!$this->input->post('submit_install')) throw new \ProcessWire\WireException('No form received'); 
+		if(!$this->input->post('submit_install')) throw new WireException('No form received'); 
 		$branch = $this->getBranch();
-		if(empty($branch)) throw new \ProcessWire\WireException("No branch selected"); 
+		if(empty($branch)) throw new WireException("No branch selected"); 
 		$oldVersion = $this->config->version;
 		$newVersion = $branch['version'];
 		$rootPath = dirname(rtrim($this->wirePath, '/')) . '/'; 
@@ -711,7 +711,7 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 		} else {
 			$this->error("Unable to rename $_old => $_new"); 
 			if(basename(rtrim($new, '/')) == 'wire') {
-				throw new \ProcessWire\WireException("Upgrade aborted. Unable to rename $_old => $_new"); 
+				throw new WireException("Upgrade aborted. Unable to rename $_old => $_new"); 
 			}
 		}
 
@@ -749,7 +749,7 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 	public function ___install() {
 
 		// create the page our module will be assigned to
-		$page = new \ProcessWire\Page();
+		$page = new Page();
 		$page->template = 'admin';
 		$page->name = self::pageName; 
 
@@ -786,7 +786,7 @@ class ProcessWireUpgrade extends \ProcessWire\Process {
 			$page->delete();
 		}
 
-		\ProcessWire\wirermdir($this->tempPath, true); 
+		wireRmdir($this->tempPath, true); 
 	}
 
 }

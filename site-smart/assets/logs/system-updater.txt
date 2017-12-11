@@ -1,5 +1,0 @@
-2017-12-10 17:01:20	Detected core version change 3.0.84 => 3.0.42
-2017-12-10 17:04:36	Detected core version change 3.0.84 => 3.0.42
-2017-12-11 09:22:33	Detected core version change 3.0.42 => 3.0.85
-2017-12-11 09:24:25	Detected core version change 3.0.42 => 3.0.85
-2017-12-11 10:58:25	Detected core version change 3.0.42 => 3.0.85
