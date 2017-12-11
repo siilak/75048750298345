@@ -77,6 +77,7 @@ endif;
  *	- Specify false to exclude all empty values (this is the default if not specified). 
  * 	- Specify true to allow all empty values to be retained.
  * 	- Specify an array of keys (from data) that should be retained if you want some retained and not others.
+ *  - Specify array of literal empty value types to retain, i.e. [ 0, '0', array(), false, null ].
  * 	- Specify the digit 0 to retain values that are 0, but not other types of empty values.
  * @param bool $beautify Beautify the encoded data when possible for better human readability? (requires PHP 5.4+)
  * @return string String of JSON data
@@ -758,6 +759,49 @@ function wireClassParents($className, $autoload = true) {
 }
 
 /**
+ * Does given instance (or class) represent an instance of the given className (or class names)?
+ * 
+ * @param object|string $instance Object instance to test (or string of its class name).
+ * @param string|array $className Class name or array of class names to test against. 
+ * @param bool $autoload
+ * @return bool|string Returns one of the following:
+ *  - boolean false if not an instance (whether $className argument is string or array). 
+ *  - boolean true if given a single $className (string) and $instance is an instance of it. 
+ *  - string of first matching class name if $className was an array of classes to test.
+ * 
+ */
+function wireInstanceOf($instance, $className, $autoload = true) {
+	
+	if(is_array($className)) {
+		$returnClass = true; 
+		$classNames = $className;
+	} else {
+		$returnClass = false;
+		$classNames = array($className);
+	}
+	
+	$matchClass = null;
+	$instanceParents = null;
+
+	foreach($classNames as $className) {
+		$className = wireClassName($className, true); // with namespace
+		if(is_object($instance) && class_exists($className, $autoload)) {
+			if($instance instanceof $className) $matchClass = $className;
+		} else {
+			if(is_null($instanceParents)) {
+				$instanceParents = wireClassParents($instance, $autoload);
+				$instanceClass = is_string($instance) ? $instance : wireClassName($instance, true);
+				$instanceParents[$instanceClass] = 1;
+			}
+			if(isset($parents[$className])) $matchClass = $className;
+		}
+		if($matchClass !== null) break;
+	}
+	
+	return $returnClass ? $matchClass : ($matchClass !== null); 
+}
+
+/**
  * ProcessWire namespace aware version of PHP's is_callable() function
  *
  * @param string|callable $var
@@ -769,6 +813,25 @@ function wireClassParents($className, $autoload = true) {
 function wireIsCallable($var, $syntaxOnly = false, &$callableName = '') {
 	if(is_string($var)) $var = wireClassName($var, true);
 	return is_callable($var, $syntaxOnly, $callableName);
+}
+
+/**
+ * Return the count of item(s) present in the given value
+ * 
+ * Duplicates behavior of PHP count() function prior to PHP 7.2, which states:
+ * Returns the number of elements in $value. When the parameter is neither an array nor an 
+ * object with implemented Countable interface, 1 will be returned. There is one exception, 
+ * if $value is NULL, 0 will be returned.
+ * 
+ * @param mixed $value
+ * @return int
+ * 
+ */
+function wireCount($value) {
+	if($value === null) return 0; 
+	if(is_array($value)) return count($value); 
+	if(is_object($value) && $value instanceof \Countable) return count($value);
+	return 1;
 }
 
 /**
@@ -801,13 +864,16 @@ function wireIsCallable($var, $syntaxOnly = false, &$callableName = '') {
  *  - Specify "*" to retrieve all defined regions in an array.
  *  - Prepend a "+" to the region name to have it prepend your given value to any existing value.
  *  - Append a "+" to the region name to have it append your given value to any existing value.
+ *  - Prepend a "++" to region name to make future calls without "+" automatically prepend. 
+ *  - Append a "++" to region name to make future calls without "+" to automatically append. 
  * @param null|string $value If setting a region, the text that you want to set.
  * @return string|null|bool|array Returns string of text when getting a region, NULL if region not set, or TRUE if setting region.
  *
  */
 function wireRegion($key, $value = null) {
-
+	
 	static $regions = array();
+	static $locked = array();
 
 	if(empty($key) || $key === '*') {
 		// all regions
@@ -822,17 +888,24 @@ function wireRegion($key, $value = null) {
 	} else {
 		// set region
 		$pos = strpos($key, '+');
-		if($pos !== false) $key = trim($key, '+');
+		if($pos !== false) {
+			$lock = strpos($key, '++') !== false;
+			$key = trim($key, '+');
+			if($lock !== false && !isset($locked[$key])) {
+				$locked[$key] = $lock === 0 ? '^' : '$'; // prepend : append
+			}
+		}
+		$lock = isset($locked[$key]) ? $locked[$key] : '';
 		if(!isset($regions[$key])) $regions[$key] = '';
-		if($pos === 0) {
+		if($pos === 0 || ($pos === false && $lock == '^')) {
 			// prepend
 			$regions[$key] = $value . $regions[$key];
-		} else if($pos) {
+		} else if($pos || ($pos === false && $lock == '$')) {
 			// append
 			$regions[$key] .= $value;
 		} else if($value === '') {
 			// clear region
-			unset($regions[$key]);
+			if(!$lock) unset($regions[$key]);
 		} else {
 			// insert/replace
 			$regions[$key] = $value;

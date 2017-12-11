@@ -2,21 +2,24 @@
   <div class="default typography" v-if="loadedData">
     
     <v-layout row transition="fade-in">
-      <v-flex xs12>
-  
-        <transition name="fade">
-          <h1>{{ pageData.title }}</h1>
-        </transition>
-        
+      <v-flex xs12 sm3>
+
         <v-layout row v-if="hasGallery">
           <v-flex xs6 sm4 v-for="img in pageData.gallery">
             <img :src="img.thumb.httpUrl" alt="">
           </v-flex>
         </v-layout>
+
+        <div v-for="page in pageData.children" v-if="hasChildren">
+          <router-link class="logo" :to="page.url">
+            {{ page.title }}
+          </router-link>
+        </div>
       
       </v-flex>
       
-      <v-flex xs12>
+      <v-flex xs12 sm9>
+        <h1 class="light">{{ pageData.title }}</h1>
         <div class="txt" v-html="pageData.content"></div>
       </v-flex>
       
@@ -41,12 +44,6 @@
       </ul>
     </div>
     
-    <!-- subpages example -->
-    <div v-for="page in pageData.children" v-if="hasChildren">
-      <router-link class="logo" :to="page.url">
-        {{ page.title }}
-      </router-link>
-    </div>
   </div>
 </template>
 

@@ -256,6 +256,7 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 		if(!isset($options['findAll'])) $options['findAll'] = true;
 		if(!isset($options['loadOptions'])) $options['loadOptions'] = array();
 		$options['loadOptions'] = $this->getLoadOptions($options['loadOptions']); 
+		if(empty($options['caller'])) $options['caller'] = $this->className() . ".find($selectorString)";
 		$pages = $this->wire('pages')->find($this->selectorString($selectorString), $options);
 		/** @var PageArray $pages */
 		foreach($pages as $page) {
@@ -271,14 +272,20 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	/**
 	 * Get the first match of your selector string
 	 * 
-	 * @param string $selectorString
-	 * @return Page|null
+	 * @param string|int $selectorString
+	 * @return Page|NullPage|null
 	 * 
 	 */
 	public function get($selectorString) {
 		
 		$options = $this->getLoadOptions(array('getOne' => true));
-		
+		if(empty($options['caller'])) {
+			$caller = $this->className() . ".get($selectorString)";
+			$options['caller'] = $caller;
+		} else {
+			$caller = $options['caller'];
+		}
+
 		if(ctype_digit("$selectorString")) {
 			// selector string contains a page ID
 			if(count($this->templates) == 1 && count($this->parents) == 1) {
@@ -306,8 +313,11 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 		} else {
 			// selector string with operators, can pass through
 		}
-
-		$page = $this->pages->get($this->selectorString($selectorString), array('loadOptions' => $options)); 
+		
+		$page = $this->pages->get($this->selectorString($selectorString), array(
+			'caller' => $caller, 
+			'loadOptions' => $options
+		)); 
 		if($page->id && !$this->isValid($page)) $page = $this->wire('pages')->newNullPage();
 		if($page->id) $this->loaded($page);
 		
@@ -392,7 +402,9 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	 *
 	 */
 	public function getIterator() {
-		return $this->find("id>0, sort=name"); 
+		return $this->find("id>0, sort=name", array(
+			'caller' => $this->className() . '.getIterator()'
+		)); 
 	}
 
 	/**
@@ -537,10 +549,11 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	/**
 	 * Hook called just before a page is saved
 	 * 
-	 * #pw-hooker
+	 * #pw-internal
 	 *
 	 * @param Page $page The page about to be saved
 	 * @return array Optional extra data to add to pages save query.
+	 * @deprecated
 	 *
 	 */
 	public function ___saveReady(Page $page) { 
@@ -554,11 +567,12 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	 * This is the same as Pages::save, except that it occurs before other save-related hooks (below),
 	 * Whereas Pages::save occurs after. In most cases, the distinction does not matter.
 	 * 
-	 * #pw-hooker
+	 * #pw-internal
 	 *
 	 * @param Page $page The page that was saved
 	 * @param array $changes Array of field names that changed
 	 * @param array $values Array of values that changed, if values were being recorded, see Wire::getChanges(true) for details.
+	 * @deprecated
 	 *
 	 */
 	public function ___saved(Page $page, array $changes = array(), $values = array()) { }
@@ -566,9 +580,10 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	/**
 	 * Hook called when a new page has been added
 	 * 
-	 * #pw-hooker
+	 * #pw-internal
 	 *
 	 * @param Page $page
+	 * @deprecated
 	 *
 	 */
 	public function ___added(Page $page) { }
@@ -576,9 +591,10 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	/**
 	 * Hook called when a page is about to be deleted, but before data has been touched
 	 * 
-	 * #pw-hooker
+	 * #pw-internal
 	 *
 	 * @param Page $page
+	 * @deprecated
 	 *
 	 */
 	public function ___deleteReady(Page $page) { }
@@ -586,9 +602,10 @@ class PagesType extends Wire implements \IteratorAggregate, \Countable {
 	/**
 	 * Hook called when a page and it's data have been deleted
 	 * 
-	 * #pw-hooker
+	 * #pw-internal
 	 *
 	 * @param Page $page
+	 * @deprecated
 	 *
 	 */
 	public function ___deleted(Page $page) { }

@@ -3,3 +3,40 @@
 2017-12-04 07:16:34	admin	http://smart.dev/processwire/module/	Installed module 'ProcessDatabaseBackups'
 2017-12-04 07:16:35	admin	http://smart.dev/processwire/module/	Saved module info caches
 2017-12-04 07:16:37	admin	http://smart.dev/processwire/module/edit?name=ProcessDatabaseBackups	Saved module 'ProcessDatabaseBackups' config data
+2017-12-10 16:56:57	admin	http://smart.dev/admin/module/download/	Saved module info caches
+2017-12-10 17:04:29	guest	http://smart.dev/	Saved module info caches
+2017-12-10 17:04:37	guest	http://smart.dev/admin/login/	Saved module info caches
+2017-12-10 17:04:37	guest	http://smart.dev/admin/login/	Saved module 'SystemUpdater' config data
+2017-12-10 17:04:39	guest	http://smart.dev//site-app/templates/client/dist/static/js/vendor.cb4e7a63fa71c4d16862.js	Saved module info caches
+2017-12-10 17:30:15	admin	http://smart.dev/admin/module/	Installed module 'LazyCron'
+2017-12-10 17:30:15	admin	http://smart.dev/admin/module/	Installed module 'CronjobDatabaseBackup'
+2017-12-10 17:30:15	admin	http://smart.dev/admin/module/	Saved module info caches
+2017-12-10 17:30:20	admin	http://smart.dev/admin/module/edit?name=CronjobDatabaseBackup	Saved module 'CronjobDatabaseBackup' config data
+2017-12-10 17:30:40	admin	http://smart.dev/admin/module/edit?name=CronjobDatabaseBackup&collapse_info=1	Saved module 'CronjobDatabaseBackup' config data
+2017-12-11 02:58:38	admin	http://smart.dev/admin/module/	Saved module 'ProcessCustomUploadNames' config data
+2017-12-11 02:58:38	admin	http://smart.dev/admin/module/	Installed module 'ProcessCustomUploadNames'
+2017-12-11 02:58:39	admin	http://smart.dev/admin/module/	Saved module info caches
+2017-12-11 03:02:01	admin	http://smart.dev/admin/module/edit?name=ProcessCustomUploadNames	Saved module 'ProcessCustomUploadNames' config data
+2017-12-11 03:02:09	admin	http://smart.dev/admin/module/edit?name=ProcessCustomUploadNames&collapse_info=1	Saved module 'ProcessCustomUploadNames' config data
+2017-12-11 03:05:15	admin	http://smart.dev/admin/module/edit?name=AllInOneMinify&collapse_info=1	Uninstalled module 'AllInOneMinify'
+2017-12-11 03:05:15	admin	http://smart.dev/admin/module/edit?name=AllInOneMinify&collapse_info=1	Saved module info caches
+2017-12-11 03:05:20	admin	http://smart.dev/admin/module/	Deleted module 'AllInOneMinify'
+2017-12-11 03:13:07	admin	http://smart.dev/admin/module/?reset=1	Saved module info caches
+2017-12-11 03:13:15	admin	http://smart.dev/admin/module/	Deleted module 'Helloworld'
+2017-12-11 03:13:26	admin	http://smart.dev/admin/module/	Installed module 'MarkupSocialShareButtons'
+2017-12-11 03:13:27	admin	http://smart.dev/admin/module/	Saved module info caches
+2017-12-11 03:13:34	admin	http://smart.dev/admin/module/edit?name=MarkupSocialShareButtons	Saved module 'MarkupSocialShareButtons' config data
+2017-12-11 03:14:13	admin	http://smart.dev/admin/module/	Deleted module 'ProcessGetVideoThumbs'
+2017-12-11 06:04:50	admin	http://smart.dev/admin/module/edit?name=CronjobDatabaseBackup	Saved module 'CronjobDatabaseBackup' config data
+2017-12-11 06:05:39	admin	http://smart.dev/admin/module/edit?name=CronjobDatabaseBackup	Saved module 'CronjobDatabaseBackup' config data
+2017-12-11 06:08:41	admin	http://smart.dev/admin/module/?reset=1	Saved module info caches
+2017-12-11 06:08:46	admin	http://smart.dev/admin/module/	Installed module 'ProcessWireUpgradeCheck'
+2017-12-11 06:08:46	admin	http://smart.dev/admin/module/	Saved module info caches
+2017-12-11 06:08:50	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgradeCheck	Saved module 'ProcessWireUpgradeCheck' config data
+2017-12-11 06:08:57	admin	http://smart.dev/admin/module/	Installed module 'ProcessWireUpgrade'
+2017-12-11 06:08:58	admin	http://smart.dev/admin/module/	Saved module info caches
+2017-12-11 06:09:00	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade	Saved module 'ProcessWireUpgrade' config data
+2017-12-11 06:09:02	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade&collapse_info=1	Saved module 'ProcessWireUpgrade' config data
+2017-12-11 06:13:13	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade&collapse_info=1	Saved module 'ProcessWireUpgrade' config data
+2017-12-11 06:13:15	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade&collapse_info=1	Saved module 'ProcessWireUpgrade' config data
+2017-12-11 06:13:26	admin	http://smart.dev/admin/setup/upgrades/	Saved module info caches

@@ -4,7 +4,7 @@
     <v-layout row>
   
       <v-flex xs12 sm7>
-        <h1 light>{{ pageData.title }}</h1>
+        <h1 class="light">{{ pageData.title }}</h1>
         <v-card light>
           <v-card-text>
             <div class="txt" v-html="pageData.content"></div>
