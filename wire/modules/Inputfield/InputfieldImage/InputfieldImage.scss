@@ -58,7 +58,10 @@ $itemPadding: 0.4em;
 
 // The <ul> element containing li.gridImage items and .InputfieldImageEdit
 .gridImages {
+	list-style: none;
+	padding-left: 0;
 	position: relative;
+	margin: 0;
 	margin-right: -.6em;
 	display: block;
 	list-style: none;
@@ -82,6 +85,7 @@ $itemPadding: 0.4em;
 	padding: $itemPadding;
 	vertical-align: top;
 	border: 1px dashed transparent; // to have the placeholder item the same size
+	
 
 	&__overflow {
 		width: 100%;
@@ -102,6 +106,7 @@ $itemPadding: 0.4em;
 			-ms-transform: translate3d(-50%, -50%, 0);
 			transform: translate3d(-50%, -50%, 0);
 		}
+		
 	}
 
 	&.gridImagePlaceholder {
@@ -157,6 +162,10 @@ $itemPadding: 0.4em;
 		font-size: 1.3em;
 		cursor: move;
 		text-shadow: 0px 0px 7px rgba(#3eb998, .7);
+		&.pw-resizing {
+			text-shadow: none;
+			background: rgba(0,0,0,0.7);
+		}
 	}
 
 	&__progress {
@@ -530,6 +539,10 @@ $itemPadding: 0.4em;
 			margin-bottom: 0.5em;
 		}
 	}
+	
+	.InputfieldFileDescription + .InputfieldFileTags {
+		margin-top: 0.5em;
+	}
 
 }
 
@@ -831,4 +844,4 @@ $itemPadding: 0.4em;
 			}
 		} // .gridImage
 	} // .InputfieldImageNarrow
-} // .InputfieldImageEditll
+} // .InputfieldImageEditAll

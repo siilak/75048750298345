@@ -29,6 +29,15 @@ class InputfieldMarkup extends InputfieldWrapper {
 		$this->skipLabel = Inputfield::skipLabelBlank;
 		parent::init();
 	}	
+	
+	public function renderReady(Inputfield $parent = null, $renderValueMode = false) {
+		$label = $this->getSetting('label');
+		
+		if(!strlen($label) && $this->skipLabel == Inputfield::skipLabelBlank) {
+			$this->addClass('InputfieldHeaderHidden');
+		}
+		return parent::renderReady($parent, $renderValueMode);
+	}
 
 	public function ___render() {
 		
@@ -52,7 +61,7 @@ class InputfieldMarkup extends InputfieldWrapper {
 		}
 		$out = trim($out);
 
-		if(count($textformatters)) {
+		if(wireCount($textformatters)) {
 			foreach($textformatters as $className) {
 				$t = $this->wire('modules')->get($className);
 				if(!$t) continue; 

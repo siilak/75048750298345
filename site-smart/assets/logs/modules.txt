@@ -40,3 +40,6 @@
 2017-12-11 06:13:13	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade&collapse_info=1	Saved module 'ProcessWireUpgrade' config data
 2017-12-11 06:13:15	admin	http://smart.dev/admin/module/edit?name=ProcessWireUpgrade&collapse_info=1	Saved module 'ProcessWireUpgrade' config data
 2017-12-11 06:13:26	admin	http://smart.dev/admin/setup/upgrades/	Saved module info caches
+2017-12-11 09:24:25	admin	http://smart.dev/admin/	Saved module info caches
+2017-12-11 09:24:25	admin	http://smart.dev/admin/	Saved module info caches
+2017-12-11 09:24:25	admin	http://smart.dev/admin/	Saved module 'SystemUpdater' config data

@@ -141,9 +141,10 @@ class FieldtypeText extends Fieldtype {
 	 *
 	 */
 	public function getDatabaseSchema(Field $field) {
-		$schema = parent::getDatabaseSchema($field); 
+		$schema = parent::getDatabaseSchema($field);
+		$len = $this->wire('database')->getMaxIndexLength();
 		$schema['data'] = 'text NOT NULL';
-		$schema['keys']['data_exact'] = 'KEY `data_exact` (`data`(250))'; 
+		$schema['keys']['data_exact'] = "KEY `data_exact` (`data`($len))"; 
 		$schema['keys']['data'] = 'FULLTEXT KEY `data` (`data`)'; 
 		return $schema;
 	}
@@ -222,6 +223,25 @@ class FieldtypeText extends Fieldtype {
 			if(count($errors)) $data['errors']['textformatters'] = implode(" \n", $errors); 
 		}
 		return $data;
+	}
+	
+	/**
+	 * Import value
+	 *
+	 * @param Page $page
+	 * @param Field $field
+	 * @param array|int|object|string $value
+	 * @param array $options
+	 * @return array|string
+	 *
+	 */
+	public function ___importValue(Page $page, Field $field, $value, array $options = array()) {
+		if(is_array($value) && isset($value['default']) && !$this->wire('languages')) {
+			// multi-language value to non-multi-language site, use only default language
+			$value = $value['default'];
+		}
+		$value = parent::___importValue($page, $field, $value, $options);
+		return $value;
 	}
 
 }

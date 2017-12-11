@@ -25,6 +25,11 @@ class FieldtypeTextLanguage extends FieldtypeText implements FieldtypeLanguageIn
 
 	/**
 	 * Sanitize value for storage
+	 * 
+	 * @param Page $page
+	 * @param Field $field
+	 * @param LanguagesValueInterface|string $value
+	 * @return LanguagesPageFieldValue
 	 *
 	 */
 	public function sanitizeValue(Page $page, Field $field, $value) {
@@ -32,29 +37,39 @@ class FieldtypeTextLanguage extends FieldtypeText implements FieldtypeLanguageIn
 			// great, already what we wanted
 		} else {
 			// convert it to a LanguagesPageFieldValue
-			$str = (string) $value; 
-			$value = $page->getUnformatted($field->name); 
-			if(is_string($value)) $value = new LanguagesPageFieldValue($page, $field, $value); // #98
-			$value->setLanguageValue($this->wire('user')->language->id, $str); 
+			$pageValue = $page->getUnformatted($field->name); 
+			if(!$pageValue instanceof LanguagesPageFieldValue) {
+				$pageValue = new LanguagesPageFieldValue($page, $field, $pageValue); // #98
+			}
+			if(is_array($value)) {
+				$pageValue->importArray($value); 
+			} else {
+				$pageValue->setLanguageValue($this->wire('user')->language->id, (string) $value); 
+			}
+			$value = $pageValue; 
 		}
 		return $value; 
 	}
 
 	/**
 	 * Return the database schema in specified format
+	 * 
+	 * @param Field $field
+	 * @return array
 	 *
 	 */
 	public function getDatabaseSchema(Field $field) {
 	
 		$schema = parent::getDatabaseSchema($field);
 		$languageSupport = $this->wire('modules')->get('LanguageSupport'); 
+		$maxIndex = (int) $this->wire('database')->getMaxIndexLength();
 	
 		// note that we use otherLanguagePageIDs rather than wire('languages') because
 		// it's possible that this method may be called before the languages are known 
 		foreach($languageSupport->otherLanguagePageIDs as $languageID) {
 			// $schema['data' . $languageID] = $schema['data'];
 			$schema['data' . $languageID] = 'text';
-			$schema['keys']["data_exact{$languageID}"] = "KEY `data_exact{$languageID}` (`data{$languageID}`(250))";
+			$schema['keys']["data_exact{$languageID}"] = "KEY `data_exact{$languageID}` (`data{$languageID}`($maxIndex))";
 			$schema['keys']["data{$languageID}"] = "FULLTEXT KEY `data{$languageID}` (`data{$languageID}`)";
 		}
 	
@@ -62,11 +77,71 @@ class FieldtypeTextLanguage extends FieldtypeText implements FieldtypeLanguageIn
 	}
 
 	/**
-	 * Format value for output, basically typcasting to a string and sending to textformatters from FieldtypeText
+	 * Format value for output, basically typecasting to a string and sending to textformatters from FieldtypeText
+	 * 
+	 * @param Page $page
+	 * @param Field $field
+	 * @param LanguagesValueInterface|string $value
+	 * @return string
 	 *
 	 */
 	public function formatValue(Page $page, Field $field, $value) {
 		return parent::formatValue($page, $field, (string) $value); 
+	}
+
+	/**
+	 * Given a value, return an portable version of it as array
+	 *
+	 * @param Page $page
+	 * @param Field $field
+	 * @param string|int|float|array|object|null $value
+	 * @param array $options Optional settings to shape the exported value, if needed.
+	 * @return string|float|int|array
+	 *
+	 */
+	public function ___exportValue(Page $page, Field $field, $value, array $options = array()) {
+		if(isset($options['sleepValue'])) {
+			// allow a sleepValue option, for use by other language Fieldtypes that delegate
+			// their exportValue to this one, like FieldtypeTextareaLanguage
+			$sleepValue = $options['sleepValue'];
+		} else {
+			$sleepValue = $this->sleepValue($page, $field, $value);
+		}
+		$exportValue = array();
+		foreach($sleepValue as $k => $v) {
+			if($k === 'data') {
+				$exportValue['default'] = $v;
+			} else if(strpos($k, 'data') === 0) {
+				$languageID = substr($k, 4);
+				$language = $this->wire('languages')->get((int) $languageID);
+				$exportValue[$language->name] = $v;
+			} else {
+				$exportValue[$k] = $v;
+			}
+		}
+		return $exportValue;
+	}
+	
+	public function ___importValue(Page $page, Field $field, $value, array $options = array()) {
+		if(is_null($value)) $value = '';
+		if(is_string($value)) {
+			$v = $value;
+			$value = $field->type->exportValue($page, $field, $page->getUnformatted($field->name), $options);
+			$value['default'] = $v; 
+		}
+		if(!is_array($value)) {
+			throw new WireException("Array value expected for multi-language importValue");
+		}
+		/** @var Languages $languages */
+		$languages = $this->wire('languages');
+		/** @var LanguagesPageFieldValue $importValue */
+		$importValue = $page->get($field->name); 
+		foreach($value as $languageName => $languageValue) {
+			$language = $languages->get($languageName); 
+			if(!$language->id) continue; 
+			$importValue->setLanguageValue($language->id, $languageValue); 
+		}
+		return $importValue;
 	}
 
 }

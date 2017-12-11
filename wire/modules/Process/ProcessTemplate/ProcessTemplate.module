@@ -467,6 +467,7 @@ class ProcessTemplate extends Process {
 			if(substr($filename, -1 * strlen($ext)) != $ext) continue; 
 			if($ignoreRegex && preg_match($ignoreRegex, $filename)) continue;
 			$basename = basename($file->getFilename(), $ext); 
+			if($this->wire('sanitizer')->name($basename) !== $basename) continue;
 			if(count($this->wire('templates')->find("name=$basename"))) continue; 
 			$templateFiles[] = $basename; 
 		}
@@ -607,6 +608,10 @@ class ProcessTemplate extends Process {
 	 */
 	public function ___executeEdit() {
 
+		if(substr($this->wire('input')->url(), -1) === '/') {
+			// we require non-trailing slash for edit requests
+			$this->wire('session')->redirect("../edit?id={$this->template->id}");
+		}
 		$this->wire('breadcrumbs')->add(new Breadcrumb('./', $this->moduleInfo['title'])); 
 		$min = $this->wire('config')->debug ? '' : '.min';
 		$this->wire('config')->scripts->add($this->wire('config')->urls->ProcessTemplate . "ProcessTemplateFieldCreator$min.js?v=1");
@@ -752,7 +757,20 @@ class ProcessTemplate extends Process {
 		$f->attr('id+name', '_fieldgroup_fields_changed');
 		$f->attr('value', '');
 		$t->add($f);
-		if($template->name != $template->fieldgroup->name || $this->config->advanced) $t->add($this->buildEditFormFieldgroup($template));
+		
+		if(in_array($template->id, $this->wire('config')->userTemplateIDs)) {
+			/** @var ProcessProfile $profile */
+			$profile = $this->wire('modules')->get('ProcessProfile');
+			$profileInputs = $profile->getModuleConfigInputfields(array('profileFields' => $profile->profileFields));
+			$f = $profileInputs->getChildByName('profileFields');
+			$f->attr('id+name', '_user_profile_fields');
+			$f->description = $this->_('If you just added fields above, save first and then return here to select them.'); 
+			$t->add($f);
+		}
+
+		if($template->name != $template->fieldgroup->name || $this->config->advanced) {
+			$t->add($this->buildEditFormFieldgroup($template));
+		}
 	
 		/** @var InputfieldText $f */
 		$f = $this->modules->get('InputfieldText');
@@ -935,14 +953,11 @@ class ProcessTemplate extends Process {
 		$select->attr('id', 'fieldgroup_fields'); 
 		$select->attr('title', $this->_('Add Field')); 
 		$select->attr('data-closeAddLabel', $this->_('Close and Add'));
-		$select->setAsmSelectOption('sortable', true); 
+		$select->setAsmSelectOption('sortable', true);
+		$select->setAsmSelectOption('fieldset', true); 
 		$select->setAsmSelectOption('editLink', $this->wire('config')->urls->admin . "setup/field/edit?id={value}&fieldgroup_id={$template->fieldgroup->id}&modal=1&process_template=1"); 
 		$select->setAsmSelectOption('hideDeleted', false);
 		
-		if(in_array($template->id, $this->wire('config')->userTemplateIDs)) {
-			$select->notes = sprintf($this->_('To configure what fields a user can edit in their profile, see the [profile module settings](%s).'), $this->wire('config')->urls->admin . 'module/edit?name=ProcessProfile');
-		}
-
 		foreach($template->fieldgroup as $field) {
 			$field = $template->fieldgroup->getField($field->id, true); // get in context
 			$attrs = $this->getAsmListAttrs($field); 
@@ -1325,13 +1340,15 @@ class ProcessTemplate extends Process {
 		$fieldset->icon = 'toggle-on';
 		$fieldset->description = $this->_('You should generally leave these toggles unchecked unless you have a specific need covered here.'); 
 		$form->add($fieldset); 
+		
+		$label0 = $this->_('specify 0 to disable');
 	
 		/** @var InputfieldCheckbox $field */
 		$field = $this->modules->get('InputfieldCheckbox');
 		$field->attr('name', 'noChangeTemplate');
 		$field->label = $this->_("Don't allow pages to change their template?");
 		$field->description = $this->_("When checked, pages using this template will be unable to change to another template."); // noChangeTemplate option, description
-		if($this->wire('config')->advanced) $field->notes = $this->_('API: $template->noChangeTemplate = 1; // or 0 to disable'); // noChangeTemplate option, API notes
+		if($this->wire('config')->advanced) $field->notes = 'API: $template->noChangeTemplate = 1; // ' . $label0; 
 
 		$field->attr('value', 1);
 		if($template->noChangeTemplate) {
@@ -1348,7 +1365,7 @@ class ProcessTemplate extends Process {
 		$field->attr('name', 'noUnpublish');
 		$field->label = $this->_("Don't allow unpublished pages");
 		$field->description = $this->_("When checked, pages using this template may only exist in a published state and may not be unpublished."); // noUnpublish option, description
-		if($this->wire('config')->advanced) $field->notes = $this->_('API: $template->noUnpublish = 1; // or 0 to disable'); // noUnpublish option, API notes
+		if($this->wire('config')->advanced) $field->notes = 'API: $template->noUnpublish = 1; // ' . $label0; 
 
 		$field->attr('value', 1);
 		if($template->noUnpublish) {
@@ -1365,7 +1382,7 @@ class ProcessTemplate extends Process {
 		$field->attr('name', 'allowChangeUser');
 		$field->label = $this->_("Allow the 'created user' to be changed on pages?");
 		$field->description = $this->_("When checked, pages using this template will have an option to change the 'created by user' (for superusers only). It will also enable the \$page->createdUser or \$page->created_users_id fields to be saved via the API."); // allowChangeUser option, description
-		if($this->wire('config')->advanced) $field->notes = $this->_('API: $template->allowChangeUser = 1; // or 0 to disable. default is 0.'); // allowChangeUser option, API notes
+		if($this->wire('config')->advanced) $field->notes = 'API: $template->allowChangeUser = 1; // ' . $label0; 
 
 		$field->attr('value', 1);
 		if($template->allowChangeUser) {
@@ -1382,7 +1399,7 @@ class ProcessTemplate extends Process {
 		$field->attr('name', 'noMove');
 		$field->label = $this->_("Don't allow pages to be moved?");
 		$field->description = $this->_("If you want to prevent pages using this template from being moved (changing parent) then check this box."); // noMove option, description
-		if($this->wire('config')->advanced) $field->notes = $this->_('API: $template->noMove = 1; // or 0 to disable'); // noMove option, API notes
+		if($this->wire('config')->advanced) $field->notes = 'API: $template->noMove = 1; // ' . $label0;
 
 		$field->attr('value', 1);
 		if($template->noMove) {
@@ -1400,7 +1417,7 @@ class ProcessTemplate extends Process {
 			$field->attr('name', 'noLang');
 			$field->label = $this->_("Disable multi-language support for this template?");
 			$field->description = $this->_("When checked, pages using this template will only use the default language.");
-			if($this->wire('config')->advanced) $field->notes = $this->_('API: $template->noLang = 1; // default is 0.');
+			if($this->wire('config')->advanced) $field->notes = 'API: $template->noLang = 1; // ' . $label0; 
 
 			$field->attr('value', 1);
 			if($template->noLang) {
@@ -1411,21 +1428,6 @@ class ProcessTemplate extends Process {
 			}
 			$fieldset->append($field);
 		}
-
-		// --------------------
-
-		/*
-		$field = $this->modules->get('InputfieldText'); 
-		$field->attr('name', 'pageNameFormat');
-		$field->label = $this->_('Page Name Format');
-		$field->description = sprintf($this->_('Optionally specify a format for page names used when a new page is added. This enables the "Page Add" step to be skipped when adding a new page. In order to work, the template used by parent page(s) must define this template (%s) as the only one allowed for children (see the "family" tab on the template used by the parent).'), $this->template->name); // Page name format, description
-		$field->notes = $this->_('You may enter any text you like here. When a new page is created and the name is not unique, an incrementing number will be appended to the end of it until it is unique.') . "\n"; // Page name format notes: general
-		$field->notes .= $this->_('**If you want your page names to derive their value from the title field:** enter "title" above (without the quotes).') . "\n"; // Page name format notes: title 
-		$field->notes .= $this->_('**If you want your page names to reflect the created date/time:** enter a [date format](http://www.php.net/manual/en/function.date.php) above. Your date format must include at least one non-alphanumeric character (like a slash "/" or colon ":" for example) in order to be recognized as a date format. Example: "Y/m/d H:i:s" would result in page names like: "2014-10-30-12-39-01". As you can see, non-alphanumeric characters still present in a formatted date are converted to hyphens.') . ' '; // Page name format notes: date 
-		$field->attr('value', $template->pageNameFormat); 
-		$field->collapsed = Inputfield::collapsedBlank;
-		$form->append($field); 
-		*/
 
 		// --------------------
 
@@ -2290,6 +2292,16 @@ class ProcessTemplate extends Process {
 			if($deleteFieldgroup) $this->fieldgroups->delete($fieldgroup);
 			$session->redirect("./");
 			return;
+		}
+
+		if(in_array($template->id, $this->wire('config')->userTemplateIDs)) {
+			$f = $form->getChildByName('_user_profile_fields');
+			$data = $this->wire('modules')->getConfig('ProcessProfile');
+			if($f && $data['profileFields'] != $f->val()) {
+				$data['profileFields'] = $f->val();
+				$this->wire('modules')->saveConfig('ProcessProfile', $data);
+				$this->message("Updated user profile fields", Notice::debug); 
+			}	
 		}
 
 		if($input->post('fieldgroup') && $input->post('fieldgroup') != $template->fieldgroup->id) {

@@ -29,7 +29,7 @@ if($user->hasPermission('page-edit')) {
 	$searchForm = '';
 }
 
-$version = $adminTheme->version . 'i';
+$version = $adminTheme->version . 'k';
 
 $config->styles->prepend($config->urls->root . "wire/templates-admin/styles/AdminTheme.css?v=$version"); 
 $config->styles->prepend($config->urls->adminTemplates . "styles/" . ($adminTheme->colors ? "main-$adminTheme->colors" : "main-classic") . ".css?v=$version"); 
@@ -77,7 +77,7 @@ $extras = $adminTheme->getExtraMarkup();
 		<div class="pw-container container">
 
 			<a id='logo' href='<?php echo $config->urls->admin?>'>
-				<img width='130' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" />
+                <img width='144' src="<?php echo $config->urls->adminTemplates?>styles/images/logo.png" alt="ProcessWire" />
 			</a>
 
 			<?php 

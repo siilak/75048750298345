@@ -393,7 +393,9 @@ class InputfieldForm extends InputfieldWrapper {
 
 		// if field is not present in this form, we assume a blank value for it
 		if(!$inputfield) {
-			$this->error("Warning ($debugNote): dependency field '$name' is not present in this form.", Notice::debug);
+			if($name != 'collapsed') {
+				$this->error("Warning ($debugNote): dependency field '$name' is not present in this form.", Notice::debug);
+			}
 			return null;
 		}
 
@@ -402,7 +404,7 @@ class InputfieldForm extends InputfieldWrapper {
 		$matches = false;
 
 		if($subfield == 'count') {
-			$value = count($value);
+			$value = wireCount($value);
 			if(self::debug) $this->debugNote("Actual count ($debugNote): $value");
 		}
 		if(is_object($value)) $value = "$value";
