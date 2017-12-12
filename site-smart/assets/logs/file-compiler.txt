@@ -2,3 +2,6 @@
 2017-12-11 15:41:50	?	?	Compiled file: /site-smart/modules/ProcessCustomUploadNames/ProcessCustomUploadNames.module
 2017-12-11 15:41:50	guest	http://smart.dev/admin/login/?Notifications=update&time=1513035703	Compiled file: /site-smart/modules/ProcessWireUpgrade/ProcessWireUpgradeCheck.module
 2017-12-11 15:41:50	guest	http://smart.dev/admin/login/?Notifications=update&time=1513035703	Compiled file: /site-smart/modules/ProcessWireUpgrade/ProcessWireUpgradeCheck.config.php
+2017-12-11 16:10:23	guest	http://smart.dev/api/pages/	Compiled file: /site-smart/templates/pages.php
+2017-12-11 16:10:23	guest	http://smart.dev/api/pages/	Compiled file: /site-smart/templates/inc/pagefields.php
+2017-12-11 16:10:23	guest	http://smart.dev/api/nav/?listing=1&parent_included=1	Compiled file: /site-smart/templates/nav.php

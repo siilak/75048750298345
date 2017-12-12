@@ -1,1 +1,3 @@
 2017-12-11 15:41:50	guest	http://smart.dev/admin/login/?Notifications=update&time=1513035703	Created session path /Volumes/Working/Tele2/tele2-web/site-smart/assets/sessions/ (WireLog)
+2017-12-11 15:41:58	guest	http://smart.dev/admin/login/	Saved db-backup - PATH[/Volumes/Working/Tele2/tele2-web/site-smart/assets/backups/database/wirevue-2.sql] (CronjobDatabaseBackup)
+2017-12-11 15:41:58	guest	http://smart.dev/admin/login/	Deleted 0 backup (CronjobDatabaseBackup)

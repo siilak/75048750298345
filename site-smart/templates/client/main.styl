@@ -40,67 +40,36 @@ $indigo = {
 // Variables
 
 @font-face {
-  font-family: 'siilaksans';
-  src: url('src/fonts/siilaksans.eot');
-  src: local('☺'), url('src/fonts/siilaksans.woff') format('woff'), url('src/fonts/siilaksans.ttf') format('truetype'), url('src/fonts/siilaksans.svg') format('svg');
+  font-family: 'Tele2 Regular';
+  src: url('src/fonts/Tele2SlabWeb-V2-Regular.eot');
+  src: local('☺'), url('src/fonts/Tele2SlabWeb-V2-Regular.woff') format('woff'), url('src/fonts/Tele2SlabWeb-V2-Regular.ttf') format('truetype'), url('src/fonts/Tele2SlabWeb-V2-Regular.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'siilaksansblack';
-  src: url('src/fonts/siilaksansblack.eot');
-  src: local('☺'), url('src/fonts/siilaksansblack.woff') format('woff'), url('src/fonts/siilaksansblack.ttf') format('truetype'), url('src/fonts/siilaksansblack.svg') format('svg');
+  font-family: 'Tele2 Heavy';
+  src: url('src/fonts/Tele2SlabWeb-Heavy.eot');
+  src: local('☺'), url('src/fonts/Tele2SlabWeb-Heavy.woff') format('woff'), url('src/fonts/Tele2SlabWeb-Heavy.ttf') format('truetype'), url('src/fonts/Tele2SlabWeb-Heavy.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "siilakBlack";
-  src: url('src/fonts/siilakneuePRO-BlackWeb.eot');
-  src: url('src/fonts/siilakneuePRO-BlackWeb.eot?#iefix') format('embedded-opentype'),
-          url('src/fonts/siilakneuePRO-BlackWeb.woff2') format('woff2'),
-          url('src/fonts/siilakneuePRO-BlackWeb.woff') format('woff'),
-          url('src/fonts/siilakneuePRO-BlackWeb.ttf') format('truetype');
+  font-family: "Tele2 Bold";
+  src: url('src/fonts/Tele2SlabWeb-Bold.eot');
+  src: url('src/fonts/Tele2SlabWeb-Bold.eot?#iefix') format('embedded-opentype'),
+          url('src/fonts/Tele2SlabWeb-Bold.woff2') format('woff2'),
+          url('src/fonts/Tele2SlabWeb-Bold.woff') format('woff'),
+          url('src/fonts/Tele2SlabWeb-Bold.ttf') format('truetype');
   font-weight: normal;
-}
-
-@font-face {
-  font-family: "siilakLight";
-  src: url('src/fonts/siilakneuePRO-LightWeb.eot');
-  src: url('src/fonts/siilakneuePRO-LightWeb.eot?#iefix') format('embedded-opentype'),
-          url('src/fonts/siilakneuePRO-LightWeb.woff2') format('woff2'),
-          url('src/fonts/siilakneuePRO-LightWeb.woff') format('woff'),
-          url('src/fonts/siilakneuePRO-LightWeb.ttf') format('truetype');
-  font-weight: normal;
-  letter-spacing: 1px;
-}
-
-@font-face {
-  font-family: 'siilakhausregular';
-  src: url('src/fonts/siilakhausregular.eot');
-  src: url('src/fonts/siilakhausregular.eot?#iefix') format('embedded-opentype'),
-          url('src/fonts/siilakhausregular.woff2') format('woff2'),
-          url('src/fonts/siilakhausregular.woff') format('woff'),
-          url('src/fonts/siilakhausregular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'siilakhausbold';
-  src: url('src/fonts/siilakhausbold.eot');
-  src: url('src/fonts/siilakhausbold.eot?#iefix') format('embedded-opentype'),
-          url('src/fonts/siilakhausbold.woff2') format('woff2'),
-          url('src/fonts/siilakhausbold.woff') format('woff'),
-          url('src/fonts/siilakhausbold.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 // Theme
 // ============================================================
-$body-font-family := 'siilakLight', Helvetica, Arial, sans-serif
+$body-font-family := 'Tele2 Regular', Helvetica, Arial, sans-serif
+$font-bold := 'Tele2 Bold', Helvetica, Arial, sans-serif
+$font-heavy := 'Tele2 Heavy', Helvetica, Arial, sans-serif
 $font-size-root := 23px
 $line-height-root := 1.5
 
@@ -663,7 +632,7 @@ $ripple-animation-visible-opacity := .15
 
 .application
   strong
-    font-family: siilaksansblack
+    font-family: $font-heavy
   img
     width 100%
     height auto
@@ -673,7 +642,7 @@ $ripple-animation-visible-opacity := .15
         color: $app_color.white
     a
       text-decoration none
-      font-family: 'siilakBlack'
+      font-family: $font-bold
       line-height: $toolbar-height
       color: $app_color.white
       margin: $button-margin
@@ -686,7 +655,7 @@ $ripple-animation-visible-opacity := .15
       border-bottom: 1px solid $app_color.white
 
     h1, h2, h3
-      font-family 'siilakBlack', Helvetica, Arial, sans-serif
+      font-family $font-heavy
       &.light
         color: $app_color.white
 
