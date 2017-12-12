@@ -95,7 +95,7 @@
     },
     metaInfo() {
       return {
-        title: this.pageData.title || config.titleFallback,
+        title: this.pageData.title.data || config.titleFallback,
         meta: [
           {
             vmid: 'description',
