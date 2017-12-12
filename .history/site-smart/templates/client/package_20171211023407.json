@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "font-awesome": "^4.7.0",
+    "tele2-ui": "file:../../../../Tele2-Vue",
     "vue": "^2.2.2",
     "vue-animate": "0.0.4",
     "vue-awesome-swiper": "^2.6.7",
